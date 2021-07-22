@@ -18,12 +18,12 @@ import SwiftUI
 public class CustomerGluRegistration:ObservableObject
 {
      var model = [RegistrationModel]()
-    @Published var apidata=RegistrationModel()
-    var baseurl = "https://api.customerglu.com/user/v1/user/sdk?token=true"
+    static var apidata=RegistrationModel()
+    static var baseurl = "https://api.customerglu.com/user/v1/user/sdk?token=true"
     
     public init(){}
     
-  public func doRegister(body:Any,completion:@escaping (RegistrationModel)->Void) ->RegistrationModel
+  public static func doRegister(body:Any,completion:@escaping (RegistrationModel)->Void) ->RegistrationModel
     {
 
         let jsonData = try! JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
