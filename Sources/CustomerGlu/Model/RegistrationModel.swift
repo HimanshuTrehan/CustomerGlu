@@ -15,3 +15,4 @@ public  struct Data:Codable {
     public var token:String?
     
 }
+
