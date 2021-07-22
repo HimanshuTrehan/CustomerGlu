@@ -14,6 +14,7 @@
 
 import Foundation
 import SwiftUI
+@available(iOS 13.0, *)
 class CustomerGluRegistration:ObservableObject
 {
      var model = [RegistrationModel]()
@@ -41,7 +42,7 @@ class CustomerGluRegistration:ObservableObject
                     as?[String:Any]
                     print(dictonary as Any)
                     do{
-                        let mydata = try JSONDecoder().decode(TaskModel.self, from: data!)
+                        let mydata = try JSONDecoder().decode(RegistrationModel.self, from: data!)
                         print("data")
                         DispatchQueue.main.async{
                             self.apidata = mydata
