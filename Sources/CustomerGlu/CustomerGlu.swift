@@ -2,14 +2,14 @@ import Foundation
 import SwiftUI
 
 @available(iOS 13.0, *)
-public class CustomerGlu {
+public struct CustomerGlu {
     
     @available(iOS 13.0, *)
     public init(){
     }
     var text = "Hello World !"
     var model = [RegistrationModel]()
-    var apidata = RegistrationModel()
+   @State var apidata = RegistrationModel()
     var baseurl = "https://api.customerglu.com/user/v1/user/sdk?token=true"
     
     public func doRegister(body:Any,completion:@escaping (RegistrationModel)->Void) ->RegistrationModel
