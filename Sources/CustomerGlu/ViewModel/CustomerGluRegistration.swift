@@ -15,7 +15,7 @@
 import Foundation
 import SwiftUI
 @available(iOS 13.0, *)
-class CustomerGluRegistration:ObservableObject
+public class CustomerGluRegistration:ObservableObject
 {
      var model = [RegistrationModel]()
     @Published var apidata=RegistrationModel()
