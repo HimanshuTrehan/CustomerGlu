@@ -21,7 +21,7 @@ public class CustomerGluRegistration:ObservableObject
     @Published var apidata=RegistrationModel()
     var baseurl = "https://api.customerglu.com/user/v1/user/sdk?token=true"
     
-    func doRegister(body:Any,completion:@escaping (RegistrationModel)->Void) ->RegistrationModel
+  public  func doRegister(body:Any,completion:@escaping (RegistrationModel)->Void) ->RegistrationModel
     {
 
         let jsonData = try! JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)

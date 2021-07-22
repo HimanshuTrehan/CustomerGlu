@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct RegistrationModel:Codable {
-    var success:Bool?
-    var data: Data?
+public struct RegistrationModel:Codable {
+   public var success:Bool?
+   public var data: Data?
 }
-struct Data:Codable {
-    var token:String?
+public struct Data:Codable {
+    public var token:String?
     
 }
