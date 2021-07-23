@@ -13,17 +13,20 @@ public struct CustomerWebView: UIViewRepresentable {
     
    @State var url:URL?
     var token:String
+
     public init(customer_token:String)
     {
         token = customer_token
+        print("ftoken",customer_token)
+        print("vtoken",token)
         loadCampaigns(cus_token: token)
     }
     
     public func loadCampaigns(cus_token:String)
     {
         CustomerGlu().retrieveData(customer_token: cus_token) { CampaignsModel in
-            url = URL(string: CampaignsModel.defaultUrl!)
-            print(url)
+         //   url = URL(string: CampaignsModel.defaultUrl!)
+          //  print(url)
         }
     }
    public class Coordinator: NSObject, WKNavigationDelegate, WKScriptMessageHandler {
