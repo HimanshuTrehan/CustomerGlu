@@ -19,7 +19,7 @@ public struct CustomerWebView: UIViewRepresentable {
         token = customer_token
         print("ftoken",customer_token)
         print("vtoken",token)
-     //   loadCampaigns(cus_token: token)
+        loadCampaigns(cus_token: token)
     }
     
     public func loadCampaigns(cus_token:String)
@@ -70,7 +70,7 @@ public struct CustomerWebView: UIViewRepresentable {
           return _wkwebview
    }
   public  func updateUIView(_ uiView: WKWebView, context: Context) {
-    var test_url = URL(string: "https://google.com")!
+    var test_url = my_url!
     let request = URLRequest(url: test_url)
         
         uiView.load(request)
