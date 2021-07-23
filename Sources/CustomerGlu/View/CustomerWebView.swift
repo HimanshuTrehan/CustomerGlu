@@ -11,19 +11,19 @@ import WebKit
 
 public struct CustomerWebView: UIViewRepresentable {
     
-   @State var url:URL?
+    var url:URL?
     var token:String
     public init(customer_token:String)
     {
         token = customer_token
-     //   loadCampaigns(cus_token: token)
+        loadCampaigns(cus_token: token)
     }
     
     public func loadCampaigns(cus_token:String)
     {
         CustomerGlu().retrieveData(customer_token: cus_token) { CampaignsModel in
             url = URL(string: CampaignsModel.defaultUrl!)
-            print(url as Any)
+            print(url)
         }
     }
    public class Coordinator: NSObject, WKNavigationDelegate, WKScriptMessageHandler {
@@ -67,7 +67,7 @@ public struct CustomerWebView: UIViewRepresentable {
           return _wkwebview
    }
   public  func updateUIView(_ uiView: WKWebView, context: Context) {
-         let myurl = URL(string: "https://amplify-launcher.dgdcnmnewfrib.amplifyapp.com/wallet/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ0ZXN0dXNlcjIwMDIiLCJnbHVJZCI6IjM3YTlhMDBmLTA1NGEtNGVlZi05NjAyLTY5NTg5MmU3ZWRlZSIsImNsaWVudCI6IjBjNWZlYWM4LTVlMWMtNDljNS05ZDZkLWJlMmY1N2E5NzA3NCIsImRldmljZUlkIjoiZGV2aWNlYiIsImRldmljZVR5cGUiOiJhbmRyb2lkIiwiaWF0IjoxNjI3MDIwNDcwLCJleHAiOjE2NTg1NTY0NzB9.CefxPg0NhZ6dqyCmd8JatjDGoNLhuZZmAXVprrCFRRk")
+         let myurl = url
     let request = URLRequest(url: myurl!)
         
         uiView.load(request)
