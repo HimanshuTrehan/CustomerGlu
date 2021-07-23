@@ -11,7 +11,7 @@ import WebKit
 
 public struct CustomerWebView: UIViewRepresentable {
     
-    var url:URL?
+   @State var url:URL?
     var token:String
     public init(customer_token:String)
     {
