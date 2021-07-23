@@ -11,21 +11,17 @@ import WebKit
 
 public struct CustomerWebView: UIViewRepresentable {
     
-   @State var my_url=URL(string: "")
+   @State var my_url=""
     var token:String
 
-    public init(customer_token:String)
+    public init(token:String)
     {
-        token = customer_token
-        print("ftoken",customer_token)
-        print("vtoken",token)
-        loadCampaigns(cus_token: token)
+        self.token = token
     }
-    
     public func loadCampaigns(cus_token:String)
     {
         CustomerGlu().retrieveData(customer_token: cus_token) { CampaignsModel in
-            my_url = URL(string: CampaignsModel.defaultUrl)
+            my_url = CampaignsModel.defaultUrl
             print(my_url)
         }
     }
@@ -67,11 +63,12 @@ public struct CustomerWebView: UIViewRepresentable {
           let _wkwebview = WKWebView(frame: .zero, configuration: configuration)
           _wkwebview.navigationDelegate = coordinator
           
-          return _wkwebview
+    return _wkwebview
    }
   public  func updateUIView(_ uiView: WKWebView, context: Context) {
-    var test_url = my_url
-    let request = URLRequest(url: test_url)
+    loadCampaigns(cus_token: token)
+    var test_url = URL(string: my_url)
+    var request = URLRequest(url: test_url!)
         
         uiView.load(request)
     
@@ -81,6 +78,6 @@ public struct CustomerWebView: UIViewRepresentable {
 @available(iOS 13.0, *)
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomerWebView(customer_token: "s")
+        CustomerWebView(token: "l")
     }
 }
