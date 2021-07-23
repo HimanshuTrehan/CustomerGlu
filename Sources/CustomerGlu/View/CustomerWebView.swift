@@ -17,11 +17,14 @@ public struct CustomerWebView: UIViewRepresentable {
     public init(token:String)
     {
         self.token = token
+        print("ddidnsbh")
+        loadCampaigns(cus_token: token)
+
     }
     public func loadCampaigns(cus_token:String)
     {
         CustomerGlu().retrieveData(customer_token: cus_token) { CampaignsModel in
-            my_url = CampaignsModel.defaultUrl
+            my_url = CampaignsModel.defaultUrl!
             print(my_url)
         }
     }
@@ -66,9 +69,13 @@ public struct CustomerWebView: UIViewRepresentable {
     return _wkwebview
    }
   public  func updateUIView(_ uiView: WKWebView, context: Context) {
-    loadCampaigns(cus_token: token)
     var test_url = URL(string: my_url)
-    var request = URLRequest(url: test_url!)
+    
+    if(test_url==nil)
+    {
+        test_url = URL(string: "https://google.com")
+    }
+    let request = URLRequest(url: test_url!)
         
         uiView.load(request)
     

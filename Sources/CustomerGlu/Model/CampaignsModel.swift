@@ -11,7 +11,7 @@ import Foundation
 public struct CampaignsModel:Codable
 {
     public var success:Bool?
-    public var defaultUrl=""
+    public var defaultUrl:String?
     public var campaigns:[Campaigns]?
 }
 
