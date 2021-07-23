@@ -38,32 +38,32 @@ public struct User:Codable
     public var deviceName:String?
 
 
+    public struct Identities:Codable
+    {
+        public var facebook_id:String?
+        public var google_id:String?
+        public var android_id:String?
+        public var ios_id:String?
+        public var clevertap_id:String?
+        public var mparticle_id:String?
+        public var segment_id:String?
+        public var moengage_id:String?
+        
+    }
+
+    public struct Profile:Codable
+    {
+        public var firstName:String?
+        public var lastName:String?
+        public var age:String?
+        public var city:String?
+        public var country:String?
+        public var timezone:String?
+
+    }
 
 }
 
-public struct Identities
-{
-    public var facebook_id:String?
-    public var google_id:String?
-    public var android_id:String?
-    public var ios_id:String?
-    public var clevertap_id:String?
-    public var mparticle_id:String?
-    public var segment_id:String?
-    public var moengage_id:String?
 
-
-}
-
-public struct Profile
-{
-    public var firstName:String?
-    public var lastName:String?
-    public var age:String?
-    public var city:String?
-    public var country:String?
-    public var timezone:String?
-
-}
 
 
