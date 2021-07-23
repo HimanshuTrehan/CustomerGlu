@@ -11,15 +11,15 @@ import Foundation
 public struct CampaignsModel:Codable
 {
     public var success:Bool?
-    public var defaultUrl:String?
+    public var defaultUrl=""
     public var campaigns:[Campaigns]?
 }
 
 public struct Campaigns:Codable
 {
-    public var campaignId:String?
-    public var url:String?
-    public var type:String?
-    public var status:String?
+    public var campaignId=""
+    public var url:String=""
+    public var type:String=""
+    public var status:String=""
     
 }

@@ -11,7 +11,7 @@ import WebKit
 
 public struct CustomerWebView: UIViewRepresentable {
     
-   @State var url:URL?
+   @State var my_url=URL(string: "")
     var token:String
 
     public init(customer_token:String)
@@ -19,14 +19,14 @@ public struct CustomerWebView: UIViewRepresentable {
         token = customer_token
         print("ftoken",customer_token)
         print("vtoken",token)
-        loadCampaigns(cus_token: token)
+     //   loadCampaigns(cus_token: token)
     }
     
     public func loadCampaigns(cus_token:String)
     {
         CustomerGlu().retrieveData(customer_token: cus_token) { CampaignsModel in
-         //   url = URL(string: CampaignsModel.defaultUrl!)
-          //  print(url)
+            my_url = URL(string: CampaignsModel.defaultUrl)
+            print(my_url)
         }
     }
    public class Coordinator: NSObject, WKNavigationDelegate, WKScriptMessageHandler {
@@ -70,11 +70,11 @@ public struct CustomerWebView: UIViewRepresentable {
           return _wkwebview
    }
   public  func updateUIView(_ uiView: WKWebView, context: Context) {
-         let myurl = url
-    let request = URLRequest(url: myurl!)
+    var test_url = URL(string: "https://google.com")!
+    let request = URLRequest(url: test_url)
         
         uiView.load(request)
-        
+    
     }
 }
 
