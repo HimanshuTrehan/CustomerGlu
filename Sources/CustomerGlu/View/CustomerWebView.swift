@@ -9,18 +9,18 @@ import SwiftUI
 import WebKit
 @available(iOS 13.0, *)
 
-struct CustomerWebView: UIViewRepresentable {
+public struct CustomerWebView: UIViewRepresentable {
     let url:URL?
     var webview = WKWebView()
-    class Coordinator: NSObject, WKNavigationDelegate, WKScriptMessageHandler {
+   public class Coordinator: NSObject, WKNavigationDelegate, WKScriptMessageHandler {
         var webView: WKWebView?
         
-        func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+       public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
             self.webView = webView
         }
         
         // receive message from wkwebview
-        func userContentController(
+      public  func userContentController(
             _ userContentController: WKUserContentController,
             didReceive message: WKScriptMessage
         ) {
@@ -36,10 +36,10 @@ struct CustomerWebView: UIViewRepresentable {
         }
     }
     
-    func makeCoordinator() -> Coordinator {
+  public  func makeCoordinator() -> Coordinator {
         return Coordinator()
     }
-     func makeUIView(context: Context) -> WKWebView  {
+   public  func makeUIView(context: Context) -> WKWebView  {
         let coordinator = makeCoordinator()
           let userContentController = WKUserContentController()
           userContentController.add(coordinator, name: "callback")
@@ -52,7 +52,7 @@ struct CustomerWebView: UIViewRepresentable {
           
           return _wkwebview
     }
-    func updateUIView(_ uiView: WKWebView, context: Context) {
+  public  func updateUIView(_ uiView: WKWebView, context: Context) {
         guard let myurl = url else
         {
             return
