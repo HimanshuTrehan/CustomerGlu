@@ -27,8 +27,11 @@ public struct CustomerWebView: UIViewRepresentable {
             _ userContentController: WKUserContentController,
             didReceive message: WKScriptMessage
         ) {
-            print("Body message",message.body)
-        
+        print("Body message",message.body)
+            
+        let msg = message.body
+        let t = type(of: msg)
+        print("type",t)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.messageToWebview(msg: "\(message.body)")
             }
