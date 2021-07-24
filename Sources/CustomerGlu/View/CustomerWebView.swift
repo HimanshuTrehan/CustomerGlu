@@ -33,11 +33,12 @@ public struct CustomerWebView: UIViewRepresentable {
         let t = type(of: msg)
         print("type",t)
         if message.name == "callback" {
-                  // message.body holds JSON of the event
-            let jsonMessageString: String = (message.body as? String)!;
-                  
-                  // // jsonDict has the event information
-                  print(jsonMessageString)
+            
+            guard let bodyString = message.body as? String,
+                  let bodyData = bodyString.data(using: .utf8) else { fatalError() }
+
+            let bodyStruct = try? JSONDecoder().decode(EventModel.self, from: bodyData)
+            print(bodyStruct?.eventName)
               }
           }
         
