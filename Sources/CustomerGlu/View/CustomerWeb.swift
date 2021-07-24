@@ -28,7 +28,9 @@ public struct CustomerWeb: View {
             CustomerWebView(my_url: my_url)
             }
         }.onAppear(perform: getCampaigns)
-        
+        .navigationViewStyle(StackNavigationViewStyle())
+        .navigationBarBackButtonHidden(true)
+        .navigationBarHidden(true)
    }
     
     public func getCampaigns()

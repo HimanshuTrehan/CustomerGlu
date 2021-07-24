@@ -28,10 +28,9 @@ public struct CustomerWebView: UIViewRepresentable {
             didReceive message: WKScriptMessage
         ) {
             print(message.body)
-            let date = Date()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.messageToWebview(msg: "hello, I got your messsage: \(message.body) at \(date)")
-            }
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//                self.messageToWebview(msg: "hello, I got your messsage: \(message.body) at \(date)")
+//            }
         }
         
         func messageToWebview(msg: String) {
@@ -57,8 +56,7 @@ public struct CustomerWebView: UIViewRepresentable {
    }
   public  func updateUIView(_ uiView: WKWebView, context: Context) {
     let test_url = URL(string: my_url)
-    print("dsffd")
-    print(test_url)
+   
     if(test_url != nil)
     {
     let request = URLRequest(url: test_url!)
