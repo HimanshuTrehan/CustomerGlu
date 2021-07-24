@@ -11,12 +11,15 @@ import WebKit
 
 public struct CustomerWebView: UIViewRepresentable {
     
-   @State var my_url=""
+    @State var my_url:String
     var token=""
 
-    public init()
+    public init(url:String)
     {
         print("webb")
+        my_url = url
+        print("myyyyyyy")
+        print(my_url)
     }
  
    public class Coordinator: NSObject, WKNavigationDelegate, WKScriptMessageHandler {
@@ -60,7 +63,7 @@ public struct CustomerWebView: UIViewRepresentable {
     return _wkwebview
    }
   public  func updateUIView(_ uiView: WKWebView, context: Context) {
-    var test_url = URL(string: "https://google.com")
+    var test_url = URL(string: my_url)
     
 
     let request = URLRequest(url: test_url!)
