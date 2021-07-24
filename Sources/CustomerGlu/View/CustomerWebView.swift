@@ -28,20 +28,30 @@ public struct CustomerWebView: UIViewRepresentable {
             didReceive message: WKScriptMessage
         ) {
         print("Body message",message.body)
+                    
+        
+        if message.name == "callback" {
+
+            guard let bodyString = message.body as? String,
+                  let bodyData = bodyString.data(using: .utf8) else { fatalError() }
+
+            let bodyStruct = try? JSONDecoder().decode(EventModel.self, from: bodyData)
+            if bodyStruct?.eventName == "CLOSE"
+            {
+                
+            }
             
-        var msgbody = message.body as? [String:Any]
+            if bodyStruct?.eventName == "OPEN_DEEPLINK" {
+                
+            }
+            
+            if bodyStruct?.eventName == "SHARE" {
+                
+            }
+              
+        }
         
-        let eventName = msgbody!["eventName"]
-        
-        print(eventName)
-//        if message.name == "callback" {
-//
-//            guard let bodyString = message.body as? String,
-//                  let bodyData = bodyString.data(using: .utf8) else { fatalError() }
-//
-//            let bodyStruct = try? JSONDecoder().decode(EventModel.self, from: bodyData)
-//            print(bodyStruct)
-//              }
+     
           }
         
         
