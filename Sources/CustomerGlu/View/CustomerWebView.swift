@@ -29,17 +29,19 @@ public struct CustomerWebView: UIViewRepresentable {
         ) {
         print("Body message",message.body)
             
-        let msg = message.body
-        let t = type(of: msg)
-        print("type",t)
-        if message.name == "callback" {
-            
-            guard let bodyString = message.body as? String,
-                  let bodyData = bodyString.data(using: .utf8) else { fatalError() }
-
-            let bodyStruct = try? JSONDecoder().decode(EventModel.self, from: bodyData)
-            print(bodyStruct)
-              }
+        var msgbody = message.body as? [String:Any]
+        
+        let eventName = msgbody!["eventName"]
+        
+        print(eventName)
+//        if message.name == "callback" {
+//
+//            guard let bodyString = message.body as? String,
+//                  let bodyData = bodyString.data(using: .utf8) else { fatalError() }
+//
+//            let bodyStruct = try? JSONDecoder().decode(EventModel.self, from: bodyData)
+//            print(bodyStruct)
+//              }
           }
         
         
