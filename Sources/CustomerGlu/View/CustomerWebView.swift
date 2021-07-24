@@ -63,12 +63,13 @@ public struct CustomerWebView: UIViewRepresentable {
     return _wkwebview
    }
   public  func updateUIView(_ uiView: WKWebView, context: Context) {
-    var test_url = URL(string: my_url)
-    
-
-    let request = URLRequest(url: test_url!)
+    let test_url = URL(string: my_url)
+    print(test_url)
+    let ourl = URL(string: "https://google.com")
+    let request = URLRequest(url: ourl!)
         
         uiView.load(request)
+    
     
     }
 }
