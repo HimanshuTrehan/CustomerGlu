@@ -8,6 +8,16 @@
 import Foundation
 
 struct EventModel:Codable {
-    var eventName=""
+    var eventName = ""
+    var data:EventData?
+}
+
+struct EventData:Codable {
+    
+    var name = ""
+    var deepLink = ""
+    var channelName = ""
+    var text = ""
+    var image = ""
 }
 

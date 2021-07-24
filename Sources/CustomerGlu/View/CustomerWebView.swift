@@ -38,7 +38,7 @@ public struct CustomerWebView: UIViewRepresentable {
                   let bodyData = bodyString.data(using: .utf8) else { fatalError() }
 
             let bodyStruct = try? JSONDecoder().decode(EventModel.self, from: bodyData)
-            print(bodyStruct?.eventName)
+            print(bodyStruct)
               }
           }
         
