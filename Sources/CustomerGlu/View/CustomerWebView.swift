@@ -32,16 +32,21 @@ public struct CustomerWebView: UIViewRepresentable {
         let msg = message.body
         let t = type(of: msg)
         print("type",t)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.messageToWebview(msg: "\(message.body)")
-            }
-        }
+        if message.name == "callback" {
+                  // message.body holds JSON of the event
+            let jsonMessageString: String = (message.body as? String)!;
+                  
+                  // // jsonDict has the event information
+                  print(jsonMessageString)
+              }
+          }
         
-        func messageToWebview(msg: String) {
-            
-            self.webView?.evaluateJavaScript("MY message:\(msg)")
-            
-        }
+        
+//        func messageToWebview(msg: String) {
+//
+//            self.webView?.evaluateJavaScript("MY message:\(msg)")
+//
+//        }
     }
     
   public  func makeCoordinator() -> Coordinator {
