@@ -27,7 +27,7 @@ public struct CustomerWebView: UIViewRepresentable {
             _ userContentController: WKUserContentController,
             didReceive message: WKScriptMessage
         ) {
-            print(message.body)
+            print("Body message",message.body)
         
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.messageToWebview(msg: "\(message.body)")
@@ -36,7 +36,7 @@ public struct CustomerWebView: UIViewRepresentable {
         
         func messageToWebview(msg: String) {
             
-            self.webView?.evaluateJavaScript("\(msg)")
+            self.webView?.evaluateJavaScript("MY message:\(msg)")
             
         }
     }
