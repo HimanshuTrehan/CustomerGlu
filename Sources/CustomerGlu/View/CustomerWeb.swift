@@ -25,7 +25,7 @@ public struct CustomerWeb: View {
             }
             else
             {
-            CustomerWebView(url: my_url)
+            CustomerWebView(my_url: my_url)
             }
         }.onAppear(perform: getCampaigns)
    }

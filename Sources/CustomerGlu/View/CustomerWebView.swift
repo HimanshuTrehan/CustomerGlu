@@ -11,16 +11,9 @@ import WebKit
 
 public struct CustomerWebView: UIViewRepresentable {
     
-    @State var my_url=""
+    @State var my_url:String
     var token=""
 
-    public init(url:String)
-    {
-        print("webb")
-        my_url = url
-        print("myyyyyyy")
-        print(my_url)
-    }
  
    public class Coordinator: NSObject, WKNavigationDelegate, WKScriptMessageHandler {
         var webView: WKWebView?
@@ -64,6 +57,7 @@ public struct CustomerWebView: UIViewRepresentable {
    }
   public  func updateUIView(_ uiView: WKWebView, context: Context) {
     let test_url = URL(string: my_url)
+    print("dsffd")
     print(test_url)
     if(test_url != nil)
     {
