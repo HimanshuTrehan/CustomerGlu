@@ -11,7 +11,7 @@ import WebKit
 
 public struct CustomerWebView: UIViewRepresentable {
     
-    @State var my_url:String
+    @State var my_url=""
     var token=""
 
     public init(url:String)
@@ -65,10 +65,12 @@ public struct CustomerWebView: UIViewRepresentable {
   public  func updateUIView(_ uiView: WKWebView, context: Context) {
     let test_url = URL(string: my_url)
     print(test_url)
-    let ourl = URL(string: "https://google.com")
-    let request = URLRequest(url: ourl!)
+    if(test_url != nil)
+    {
+    let request = URLRequest(url: test_url!)
         
         uiView.load(request)
+    }
     
     
     }
