@@ -28,13 +28,16 @@ public struct CustomerWebView: UIViewRepresentable {
             didReceive message: WKScriptMessage
         ) {
             print(message.body)
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//                self.messageToWebview(msg: "hello, I got your messsage: \(message.body) at \(date)")
-//            }
+        
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.messageToWebview(msg: "\(message.body)")
+            }
         }
         
         func messageToWebview(msg: String) {
-            self.webView?.evaluateJavaScript("webkit.messageHandlers.bridge.onMessage('\(msg)')")
+            
+            self.webView?.evaluateJavaScript("\(msg)")
+            
         }
     }
     
