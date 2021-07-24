@@ -10,7 +10,7 @@ import SwiftUI
 @available(iOS 13.0, *)
 public struct CustomerWeb: View {
     @State var token:String
-    @State var my_url:String?
+    @State var my_url=""
     public init(cus_token:String){
         print("web")
         token = cus_token
@@ -19,7 +19,7 @@ public struct CustomerWeb: View {
    public var body: some View {
         VStack
         {
-            CustomerWebView(url: my_url!)
+            CustomerWebView(url: my_url)
         }.onAppear(perform: getCampaigns)
    }
     
