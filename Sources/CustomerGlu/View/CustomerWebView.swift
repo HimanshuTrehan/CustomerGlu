@@ -56,7 +56,7 @@ public struct CustomerWebView: UIViewRepresentable {
                 let share = try? JSONDecoder().decode(EventShareModel.self, from: bodyData)
                 let text = share?.data?.text
                 if #available(iOS 14.0, *) {
-                    Link("Learn SwiftUI", destination: URL(string: "https://api.whatsapp.com/send?text=\(text)")!)
+                    Link("Learn SwiftUI", destination: URL(string: "https://api.whatsapp.com/send")!)
                 } else {
                     if let url = URL(string: "https://www.hackingwithswift.com") {
                            UIApplication.shared.open(url)
