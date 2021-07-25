@@ -40,6 +40,7 @@ public struct CustomerWebView: UIViewRepresentable {
            
             if bodyStruct?.eventName == "CLOSE"
             {
+                print("close")
             }
             
             if bodyStruct?.eventName == "OPEN_DEEPLINK" {
