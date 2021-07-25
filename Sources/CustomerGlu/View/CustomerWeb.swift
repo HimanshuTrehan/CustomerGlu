@@ -9,8 +9,10 @@ import SwiftUI
 
 @available(iOS 13.0, *)
 public struct CustomerWeb: View {
+ //   @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var token:String
     @State var my_url=""
+  
     public init(cus_token:String){
         print("web")
         token = cus_token
@@ -25,13 +27,17 @@ public struct CustomerWeb: View {
             }
             else
             {
-            CustomerWebView(my_url: my_url)
+                CustomerWebView(my_url: my_url)
             }
         }.onAppear(perform: getCampaigns)
         .navigationViewStyle(StackNavigationViewStyle())
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
    }
+//    public func closeView()
+//    {
+//        self.presentationMode.wrappedValue.dismiss()
+//    }
     
     public func getCampaigns()
      {

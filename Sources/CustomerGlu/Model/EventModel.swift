@@ -14,10 +14,6 @@ struct EventModel:Codable {
 
 struct EventData:Codable {
     
-    var name = ""
-    var deepLink = ""
-    var channelName = ""
-    var text = ""
-    var image = ""
+   
 }
 

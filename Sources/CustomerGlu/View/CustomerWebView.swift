@@ -40,15 +40,18 @@ public struct CustomerWebView: UIViewRepresentable {
            
             if bodyStruct?.eventName == "CLOSE"
             {
-                self.presentationMode.wrappedValue.dismiss()
             }
             
             if bodyStruct?.eventName == "OPEN_DEEPLINK" {
                 
+                let deeplink = try? JSONDecoder().decode(DeepLinkModel.self, from: bodyData)
+                print(deeplink)
             }
             
             if bodyStruct?.eventName == "SHARE" {
                 
+                let share = try? JSONDecoder().decode(EventShareModel.self, from: bodyData)
+                    print(share)
             }
               
         }
