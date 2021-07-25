@@ -13,11 +13,12 @@ public struct CustomerWebView: UIViewRepresentable {
     
     @State var my_url:String
     var token=""
-
  
    public class Coordinator: NSObject, WKNavigationDelegate, WKScriptMessageHandler {
         var webView: WKWebView?
     public override init(){}
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
        public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
             self.webView = webView
         }
@@ -36,9 +37,10 @@ public struct CustomerWebView: UIViewRepresentable {
                   let bodyData = bodyString.data(using: .utf8) else { fatalError() }
 
             let bodyStruct = try? JSONDecoder().decode(EventModel.self, from: bodyData)
+           
             if bodyStruct?.eventName == "CLOSE"
             {
-                
+                self.presentationMode.wrappedValue.dismiss()
             }
             
             if bodyStruct?.eventName == "OPEN_DEEPLINK" {
