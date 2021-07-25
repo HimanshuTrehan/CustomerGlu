@@ -14,7 +14,7 @@ struct DeepLinkModel:Codable {
 
 struct EventLinkData:Codable {
     
-    var name = ""
+    var screenName = ""
     var deepLink = ""
 
 }

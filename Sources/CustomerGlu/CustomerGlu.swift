@@ -14,7 +14,7 @@ public class CustomerGlu:ObservableObject {
     var load_campaigns_url = "https://api.customerglu.com/reward/v1.1/user"
   
     
-    public func doRegister(body:Any,completion:@escaping (RegistrationModel)->Void) -> RegistrationModel
+    public func doRegister(body:Any,completion:@escaping (RegistrationModel)->Void)
       {
 
           let jsonData = try! JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
@@ -56,9 +56,8 @@ public class CustomerGlu:ObservableObject {
               
           }.resume()
           
-          return self.apidata
       }
-    public func retrieveData(customer_token:String,completion:@escaping (CampaignsModel)->Void)->CampaignsModel
+    public func retrieveData(customer_token:String,completion:@escaping (CampaignsModel)->Void)
     {
     
         let token = "Bearer "+customer_token
@@ -102,6 +101,5 @@ public class CustomerGlu:ObservableObject {
             
         }.resume()
         
-        return self.campaigndata
     }
 }

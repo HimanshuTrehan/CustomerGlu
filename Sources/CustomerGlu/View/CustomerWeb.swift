@@ -9,7 +9,7 @@ import SwiftUI
 
 @available(iOS 13.0, *)
 public struct CustomerWeb: View {
- //   @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+ //
     @State var token:String
     @State var my_url=""
   
@@ -17,10 +17,11 @@ public struct CustomerWeb: View {
         print("web")
         token = cus_token
     }
-    
+  
    public var body: some View {
         VStack
         {
+            
             if my_url=="" 
             {
                 EmptyView()

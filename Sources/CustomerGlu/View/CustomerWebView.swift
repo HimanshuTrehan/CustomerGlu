@@ -41,18 +41,27 @@ public struct CustomerWebView: UIViewRepresentable {
             if bodyStruct?.eventName == "CLOSE"
             {
                 print("close")
+                close(1)
             }
             
             if bodyStruct?.eventName == "OPEN_DEEPLINK" {
                 
                 let deeplink = try? JSONDecoder().decode(DeepLinkModel.self, from: bodyData)
-                print(deeplink)
+               // print(deeplink)
+                
             }
             
             if bodyStruct?.eventName == "SHARE" {
                 
                 let share = try? JSONDecoder().decode(EventShareModel.self, from: bodyData)
-                    print(share)
+                let text = share?.data?.text
+                if #available(iOS 14.0, *) {
+                    Link("Learn SwiftUI", destination: URL(string: "https://api.whatsapp.com/send?text=\(text)")!)
+                } else {
+                    if let url = URL(string: "https://www.hackingwithswift.com") {
+                           UIApplication.shared.open(url)
+                       }                }
+
             }
               
         }
