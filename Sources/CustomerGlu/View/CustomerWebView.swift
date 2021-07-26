@@ -49,7 +49,18 @@ public struct CustomerWebView: UIViewRepresentable {
             if bodyStruct?.eventName == "OPEN_DEEPLINK" {
                 
                 let deeplink = try? JSONDecoder().decode(DeepLinkModel.self, from: bodyData)
-               // print(deeplink)
+                if  let deep_link = deeplink?.data?.deepLink
+                {
+                 print("link",deep_link)
+                         if let url = URL(string: deep_link) {
+                                UIApplication.shared.open(url)
+                                         
+                         }
+                         else{
+                             print("Can't open deeplink")
+                         }
+
+                 }
                 
             }
             
@@ -59,7 +70,7 @@ public struct CustomerWebView: UIViewRepresentable {
            if    let text = share?.data?.text
            {
             print("text",text)
-                    if let url = URL(string: "https://modpod.page.link/jdF1") {
+                    if let url = URL(string: "https://api.whatsapp.com/send?text=\(text)") {
                            UIApplication.shared.open(url)
                                     
                     }
