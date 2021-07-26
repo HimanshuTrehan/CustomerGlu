@@ -31,8 +31,8 @@ public struct LoadAllCampaigns: View {
         }
         else
         {
-    List(campaigns!, id: \.id) { movie in
-            Text(movie.campaignId)
+    List(campaigns!, id: \.campaignId) { movie in
+        Text(movie.url)
         }
     }
    }.onAppear(perform: {getCampaign()})

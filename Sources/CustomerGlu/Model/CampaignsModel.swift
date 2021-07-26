@@ -15,9 +15,8 @@ public struct CampaignsModel:Codable
     public var campaigns:[Campaigns]?
 }
 
-public struct Campaigns:Codable,Identifiable
+public struct Campaigns:Codable
 {
-    public var id = UUID()
     public var campaignId=""
     public var url:String=""
     public var type:String=""
