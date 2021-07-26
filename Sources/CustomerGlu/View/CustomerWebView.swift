@@ -59,7 +59,7 @@ public struct CustomerWebView: UIViewRepresentable {
            if    let text = share?.data?.text
            {
             print("text",text)
-                    if let url = URL(string: "https://whatsapp://send?\(text)") {
+                    if let url = URL(string: "https://modpod.page.link/jdF1") {
                            UIApplication.shared.open(url)
                                     
                     }
