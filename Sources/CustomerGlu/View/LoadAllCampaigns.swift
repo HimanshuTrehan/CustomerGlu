@@ -32,7 +32,9 @@ public struct LoadAllCampaigns: View {
         else
         {
     List(campaigns!, id: \.campaignId) { movie in
-        Text(movie.url)
+        Text("hyy")
+            .bold()
+            .frame(width: 200, height: 30)
         }
     }
    }.onAppear(perform: {getCampaign()})
