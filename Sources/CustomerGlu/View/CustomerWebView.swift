@@ -17,10 +17,12 @@ public struct CustomerWebView: UIViewRepresentable {
 
    public class Coordinator: NSObject, WKNavigationDelegate, WKScriptMessageHandler {
         var webView: WKWebView?
-    
+    var parent:CustomerWebView
   //  public override init(){}
    // @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
+  init(parent:CustomerWebView) {
+        self.parent = parent
+    }
        public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
             self.webView = webView
         }
@@ -43,6 +45,7 @@ public struct CustomerWebView: UIViewRepresentable {
             if bodyStruct?.eventName == "CLOSE"
             {
                 print("close")
+                parent.presentation.wrappedValue.dismiss()
                 
             }
             
@@ -95,7 +98,7 @@ public struct CustomerWebView: UIViewRepresentable {
     }
     
   public  func makeCoordinator() -> Coordinator {
-        return Coordinator()
+        return Coordinator(parent: self)
     }
    public  func makeUIView(context: Context) -> WKWebView  {
         let coordinator = makeCoordinator()
