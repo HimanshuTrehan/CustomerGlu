@@ -13,11 +13,13 @@ public struct CustomerWebView: UIViewRepresentable {
     
     @State var my_url:String
     var token=""
- 
+    @Environment(\.presentationMode) var presentation
+
    public class Coordinator: NSObject, WKNavigationDelegate, WKScriptMessageHandler {
         var webView: WKWebView?
-    public override init(){}
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+  //  public override init(){}
+   // @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
        public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
             self.webView = webView
@@ -41,7 +43,7 @@ public struct CustomerWebView: UIViewRepresentable {
             if bodyStruct?.eventName == "CLOSE"
             {
                 print("close")
-                close(1)
+                
             }
             
             if bodyStruct?.eventName == "OPEN_DEEPLINK" {
@@ -54,9 +56,9 @@ public struct CustomerWebView: UIViewRepresentable {
             if bodyStruct?.eventName == "SHARE" {
                 
                 let share = try? JSONDecoder().decode(EventShareModel.self, from: bodyData)
-           //     let text = share?.data?.text
-               
-                    if let url = URL(string: "whatsapp://send") {
+           if    let text = share?.data?.text
+           {
+                    if let url = URL(string: "https://whatsapp://send?\(text)") {
                            UIApplication.shared.open(url)
                                     
                     }
@@ -64,6 +66,7 @@ public struct CustomerWebView: UIViewRepresentable {
                         print("Can't open whatsapp")
                     }
 
+            }
             }
               
         }

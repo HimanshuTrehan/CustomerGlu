@@ -21,7 +21,6 @@ public struct CustomerWeb: View {
    public var body: some View {
         VStack
         {
-            
             if my_url=="" 
             {
                 EmptyView()
