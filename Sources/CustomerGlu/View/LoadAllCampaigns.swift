@@ -23,7 +23,6 @@ public struct LoadAllCampaigns: View {
        })
     }
     
-    @available(iOS 14.0, *)
     public var body: some View
     {
         
