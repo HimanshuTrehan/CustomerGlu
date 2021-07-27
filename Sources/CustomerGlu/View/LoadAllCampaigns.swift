@@ -30,20 +30,20 @@ public struct LoadAllCampaigns: View {
             element in
             
             Text(element.banner!.title)
-//            if element.banner?.imageUrl == nil
-//            {
-//                BannerCell()
-//
-//            }
-//            if element.banner?.title == nil
-//            {
-//                BannerCell()
-//
-//            }
-//            else
-//            {
+            if element.banner?.imageUrl == nil
+            {
                 BannerCell()
-           // }
+
+            }
+            if element.banner?.title == nil
+            {
+                BannerCell()
+
+            }
+            else
+            {
+                BannerCell()
+           }
         }.onAppear(perform: {getCampaign()})
     }
 
