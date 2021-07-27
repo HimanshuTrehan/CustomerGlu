@@ -29,8 +29,8 @@ public struct Campaigns:Codable
 public struct Banner:Codable
 
 {
-    public var title=""
-    public var body=""
+    public var title:String?
+    public var body:String?
     public var totalUsers:String?
     public var imageUrl:String?
     public var completedUsers:String?

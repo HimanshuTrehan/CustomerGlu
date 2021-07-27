@@ -23,31 +23,20 @@ public struct LoadAllCampaigns: View {
        })
     }
     
+
+
     public var body: some View
     {
         List(campaigns,id:\.campaignId)
         {
             element in
             
-            Text(element.banner!.title)
-            if element.banner?.imageUrl == nil
-            {
-                BannerCell()
-
-            }
-            if element.banner?.title == nil
-            {
-                BannerCell()
-
-            }
-            else
-            {
-                BannerCell()
-           }
-        }.onAppear(perform: {getCampaign()})
+           
+            BannerCell(image_url: (element.banner?.imageUrl!)!, title:(element.banner?.title!)!)
+                
+           }.onAppear(perform: {getCampaign()})
+        }
     }
 
-  
-}
 
 

@@ -40,11 +40,13 @@ struct BannerCell:View
 {
     @ObservedObject var imageLoader:ImageLoader
     @State var image:UIImage = UIImage()
-    //    var title:String
+    var title:String
     
     
-    init() {
-        imageLoader = ImageLoader(urlString:"https://assets.customerglu.com/finin/app-banners/banner1.png")
+    init(image_url:String,title:String) {
+        self.title = title
+        imageLoader = ImageLoader(urlString:image_url)
+        
     }
     var body: some View
     {
@@ -61,7 +63,7 @@ struct BannerCell:View
                            .onReceive(imageLoader.didChange) { data in
                            self.image = UIImage(data: data) ?? UIImage()
                    }
-            Text("j").font(.system(size: 25)).padding(.bottom,10)
+            Text(title).font(.system(size: 25)).padding(.bottom,10)
      
                 
                 
