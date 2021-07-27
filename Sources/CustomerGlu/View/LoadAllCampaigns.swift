@@ -30,12 +30,31 @@ public struct LoadAllCampaigns: View {
         List(campaigns,id:\.campaignId)
         {
             element in
-            if element.banner?.imageUrl == nil{
-                BannerCell(image_url: "", title: (element.banner?.title)!)
+            
+            if element.banner != nil
+            {
+                if element.banner?.imageUrl == nil && element.banner?.title == nil
+                    {
+                    BannerCell(image_url: "https://images.unsplash.com/photo-1614680376739-414d95ff43df?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGdhbWVzJTIwYmFubmVyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", title: "")
+                     }
+                
+               else if element.banner?.imageUrl == nil{
+                    BannerCell(image_url: "https://images.unsplash.com/photo-1614680376739-414d95ff43df?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGdhbWVzJTIwYmFubmVyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", title: (element.banner?.title)!)
+                }
+                
+                else if element.banner?.title == nil
+                {
+                    BannerCell(image_url: (element.banner?.imageUrl!)!, title:"")
+                }
+                else{
+                BannerCell(image_url: (element.banner?.imageUrl!)!, title:(element.banner?.title!)!)
+                }
+
             }
             else{
-            BannerCell(image_url: (element.banner?.imageUrl!)!, title:(element.banner?.title!)!)
+                BannerCell(image_url: "https://images.unsplash.com/photo-1614680376739-414d95ff43df?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGdhbWVzJTIwYmFubmVyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", title: "")
             }
+            
            }.onAppear(perform: {getCampaign()})
         .navigationViewStyle(StackNavigationViewStyle())
         .navigationBarBackButtonHidden(true)

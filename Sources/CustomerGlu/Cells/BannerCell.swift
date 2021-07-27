@@ -57,14 +57,7 @@ struct BannerCell:View
 //                .frame(width: .infinity, height: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
 //                .padding(.top,10)
             
-            if image == nil {
-                Image(systemName: "clock")
-                               .resizable()
-                               .aspectRatio(contentMode: .fit)
-                    .frame(width:.infinity, height:100)
-            }
-            else
-            {
+        
             Image(uiImage: image)
                            .resizable()
                            .aspectRatio(contentMode: .fit)
@@ -72,12 +65,12 @@ struct BannerCell:View
                            .onReceive(imageLoader.didChange) { data in
                            self.image = UIImage(data: data) ?? UIImage()
                    }
-            }
+            
             Text(title).font(.system(size: 25)).padding(.bottom,10)
      
                 
                 
-            }.padding([.trailing,.bottom],10)
+        }.padding(.all,10)
 
       
         .frame(maxWidth: .infinity, alignment: .center)
