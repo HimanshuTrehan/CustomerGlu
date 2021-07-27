@@ -64,13 +64,14 @@ struct BannerCell:View
                 Image(uiImage: image)
                                .resizable()
                                .aspectRatio(contentMode: .fit)
-                    .frame(width:.infinity, height:100)
+                    .frame(width:350, height:100)
                                .onReceive(imageLoader.didChange) { data in
                                self.image = UIImage(data: data) ?? UIImage()
                        }
-                Text(title).font(.system(size: 25)).padding(.bottom,10)
 
             }
+            Text(title).font(.system(size: 25)).padding(.bottom,10)
+
            
      
 
