@@ -31,13 +31,13 @@ public struct Banner:Codable
 {
     public var title=""
     public var body=""
-//    public var totalUsers=""
-//    public var imageUrl=""
-//    public var completedUsers=""
-//    public var inProgressUsers=""
-//    public var totalSteps=""
-//    public var stepsCompleted=""
-//    public var stepsRemaining=""
+    public var totalUsers:String?
+    public var imageUrl:String?
+    public var completedUsers:String?
+    public var inProgressUsers:String?
+    public var totalSteps:String?
+    public var stepsCompleted:String?
+    public var stepsRemaining:String?
 
     
 }
