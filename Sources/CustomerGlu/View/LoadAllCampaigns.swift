@@ -28,7 +28,7 @@ public struct LoadAllCampaigns: View {
         List(campaigns,id:\.campaignId)
         {
             element in
-            Text("huu")
+            Text(element.campaignId)
         }.onAppear(perform: {getCampaign()})
     }
 
