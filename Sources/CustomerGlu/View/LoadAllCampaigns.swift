@@ -15,17 +15,17 @@ public struct LoadAllCampaigns: View {
     {
         self.customer_token = customer_token
     }
-    @State var campaigns:[Campaigns]?
+    @State var campaigns:[Campaigns]=[]
     
     public func getCampaign() {
         CustomerGlu().retrieveData(customer_token: customer_token, completion: { CampaignsModel in
-            campaigns = CampaignsModel.campaigns
+            campaigns = CampaignsModel.campaigns!
        })
     }
     
     public var body: some View
     {
-        List(campaigns!,id:\.campaignId)
+        List(campaigns,id:\.campaignId)
         {
             element in
             Text("huu")
