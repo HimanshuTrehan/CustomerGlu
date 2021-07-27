@@ -28,7 +28,8 @@ public struct LoadAllCampaigns: View {
         List(campaigns,id:\.campaignId)
         {
             element in
-            Text(element.campaignId)
+            
+            BannerCell(image: (element.banner?.imageUrl!)!, title: (element.banner?.title!)!)
         }.onAppear(perform: {getCampaign()})
     }
 
