@@ -28,20 +28,22 @@ public struct LoadAllCampaigns: View {
         List(campaigns,id:\.campaignId)
         {
             element in
-            if element.banner?.imageUrl == nil
-            {
-                BannerCell(image: "", title: "")
-
-            }
-            if element.banner?.title == nil
-            {
-                BannerCell(image: "", title: "")
-
-            }
-            else
-            {
-                BannerCell(image: element.banner!.imageUrl, title:element.banner!.title)
-            }
+            
+            Text(element.banner!.title)
+//            if element.banner?.imageUrl == nil
+//            {
+//                BannerCell(image: "", title: "")
+//
+//            }
+//            if element.banner?.title == nil
+//            {
+//                BannerCell(image: "", title: "")
+//
+//            }
+//            else
+//            {
+//                BannerCell(image: element.banner!.imageUrl, title:element.banner!.title)
+//            }
         }.onAppear(perform: {getCampaign()})
     }
 
