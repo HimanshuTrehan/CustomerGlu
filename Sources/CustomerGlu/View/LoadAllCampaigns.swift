@@ -23,14 +23,10 @@ public struct LoadAllCampaigns: View {
        })
     }
     
-
-
+    @available(iOS 14.0, *)
     public var body: some View
     {
-        Text("Rewards")
-            .bold()
-            .foregroundColor(.black)
-            .font(.system(size: 40))
+        
         List(campaigns,id:\.campaignId)
         {
             element in

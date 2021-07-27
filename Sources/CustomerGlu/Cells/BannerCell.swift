@@ -54,12 +54,6 @@ struct BannerCell:View
     {
         VStack(alignment: .center) {
                 
-          
-//            Image(systemName: "clock")
-//                .resizable()
-//                .frame(width: .infinity, height: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-//                .padding(.top,10)
-            
             NavigationLink(destination: RewardWeb(url: url)) {
                 Image(uiImage: image)
                                .resizable()
@@ -71,19 +65,10 @@ struct BannerCell:View
 
             }
             Text(title).font(.system(size: 25)).padding(.bottom,10)
-
-           
-     
-
-                
         }.padding(.all,10)
-
-      
         .frame(maxWidth: .infinity, alignment: .center)
         .background(Color.white)
         .modifier(CardModifier())
-        .padding(.all, 10)
-
     }
         
     
