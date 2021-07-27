@@ -16,6 +16,7 @@ public struct CampaignsModel:Codable
 }
 
 public struct Campaigns:Codable
+
 {
     public var campaignId=""
     public var url:String=""
@@ -26,6 +27,7 @@ public struct Campaigns:Codable
 }
 
 public struct Banner:Codable
+
 {
     public var title=""
     public var body=""
