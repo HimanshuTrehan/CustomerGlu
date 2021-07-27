@@ -13,10 +13,6 @@ struct RewardWeb: View {
     var body: some View {
         VStack
         {
-            Text("Rewards")
-                .bold()
-                .foregroundColor(.black)
-                .font(.system(size: 40))
         if url == nil
         {
             EmptyView()
@@ -25,6 +21,8 @@ struct RewardWeb: View {
         CustomerWebView(my_url: url)
         }
         }.navigationViewStyle(StackNavigationViewStyle())
+        .navigationBarBackButtonHidden(true)
+        .navigationBarHidden(true)
     }
 }
 

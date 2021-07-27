@@ -27,6 +27,10 @@ public struct LoadAllCampaigns: View {
 
     public var body: some View
     {
+        Text("Rewards")
+            .bold()
+            .foregroundColor(.black)
+            .font(.system(size: 40))
         List(campaigns,id:\.campaignId)
         {
             element in
@@ -60,8 +64,7 @@ public struct LoadAllCampaigns: View {
        
         .onAppear(perform: {getCampaign()})
         .navigationViewStyle(StackNavigationViewStyle())
-        .navigationBarBackButtonHidden(false)
-        .navigationBarHidden(true)
+        
     }
     }
 
