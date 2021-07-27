@@ -33,8 +33,6 @@ class ImageLoader: ObservableObject {
 }
 
 
-
-
 @available(iOS 13.0, *)
 struct BannerCell:View
 {
@@ -66,9 +64,10 @@ struct BannerCell:View
             }
             Text(title).font(.system(size: 25)).padding(.bottom,10)
         }.padding(.all,10)
-        .frame(maxWidth: .infinity, alignment: .center)
+        .frame(maxWidth: .infinity-30, alignment: .center)
         .background(Color.white)
         .modifier(CardModifier())
+        
     }
         
     
