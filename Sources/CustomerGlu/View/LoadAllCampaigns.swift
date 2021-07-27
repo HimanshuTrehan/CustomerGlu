@@ -15,30 +15,23 @@ public struct LoadAllCampaigns: View {
     {
         self.customer_token = customer_token
     }
-    @State var campaigns = CampaignsModel().campaigns
+    @State var campaigns:[Campaigns]?
     
     public func getCampaign() {
         CustomerGlu().retrieveData(customer_token: customer_token, completion: { CampaignsModel in
             campaigns = CampaignsModel.campaigns
        })
     }
-   public var body: some View {
-    ScrollView
+    
+    public var body: some View
     {
-        if campaigns == nil
+        List(campaigns!,id:\.campaignId)
         {
-            EmptyView()
-        }
-        else
-        {
-    List(campaigns!, id: \.campaignId) { movie in
-        Text("hyy")
-            .bold()
-            .frame(width: 200, height: 30)
-        }
+            element in
+            Text("huu")
+        }.onAppear(perform: {getCampaign()})
     }
-   }.onAppear(perform: {getCampaign()})
-   }
+
   
 }
 
