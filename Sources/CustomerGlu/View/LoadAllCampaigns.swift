@@ -25,7 +25,10 @@ public struct LoadAllCampaigns: View {
     
     public var body: some View
     {
-        
+        Text("Rewards")
+            .font(.system(size: 30))
+            .bold()
+            .padding()
         List(campaigns,id:\.campaignId)
         {
             element in
@@ -60,10 +63,7 @@ public struct LoadAllCampaigns: View {
         .onAppear(perform: {getCampaign()})
         .navigationViewStyle(StackNavigationViewStyle())
         .navigationBarItems(leading: HStack {
-            
-            Button("Hours") {
-                print("Hours tapped!")
-            }
+                        
         })
     }
     }
