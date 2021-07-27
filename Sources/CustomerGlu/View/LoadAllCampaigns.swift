@@ -25,10 +25,7 @@ public struct LoadAllCampaigns: View {
     
     public var body: some View
     {
-        Text("Rewards")
-            .font(.system(size: 30))
-            .bold()
-            .padding()
+      
         List(campaigns,id:\.campaignId)
         {
             element in
