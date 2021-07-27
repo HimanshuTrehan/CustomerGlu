@@ -57,11 +57,11 @@ struct BannerCell:View
 //                .frame(width: .infinity, height: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
 //                .padding(.top,10)
             
-            if image == nil{
+            if image == nil {
                 Image(systemName: "clock")
                                .resizable()
                                .aspectRatio(contentMode: .fit)
-                               .frame(width:100, height:100)
+                    .frame(width:.infinity, height:100)
             }
             else
             {
