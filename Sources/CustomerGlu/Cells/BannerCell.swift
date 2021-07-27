@@ -41,34 +41,39 @@ struct BannerCell:View
     @ObservedObject var imageLoader:ImageLoader
     @State var image:UIImage = UIImage()
     var title:String
+    var url:String
     
     
-    init(image_url:String,title:String) {
+    init(image_url:String,title:String,url:String) {
         self.title = title
+        self.url = url
         imageLoader = ImageLoader(urlString:image_url)
         
     }
     var body: some View
     {
         VStack(alignment: .center) {
-//
+                
+          
 //            Image(systemName: "clock")
 //                .resizable()
 //                .frame(width: .infinity, height: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
 //                .padding(.top,10)
             
-        
-            Image(uiImage: image)
-                           .resizable()
-                           .aspectRatio(contentMode: .fit)
-                .frame(width:.infinity, height:100)
-                           .onReceive(imageLoader.didChange) { data in
-                           self.image = UIImage(data: data) ?? UIImage()
-                   }
-            
-            Text(title).font(.system(size: 25)).padding(.bottom,10)
+            NavigationLink(destination: RewardWeb(url: url)) {
+                Image(uiImage: image)
+                               .resizable()
+                               .aspectRatio(contentMode: .fit)
+                    .frame(width:.infinity, height:100)
+                               .onReceive(imageLoader.didChange) { data in
+                               self.image = UIImage(data: data) ?? UIImage()
+                       }
+                Text(title).font(.system(size: 25)).padding(.bottom,10)
+
+            }
+           
      
-                
+
                 
         }.padding(.all,10)
 
