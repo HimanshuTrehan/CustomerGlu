@@ -59,13 +59,11 @@ public struct LoadAllCampaigns: View {
        
         .onAppear(perform: {getCampaign()})
         .navigationViewStyle(StackNavigationViewStyle())
-        .navigationBarHidden(true)
         .navigationBarItems(leading: HStack {
             
             Button("Hours") {
                 print("Hours tapped!")
             }
-            Spacer()
         })
     }
     }

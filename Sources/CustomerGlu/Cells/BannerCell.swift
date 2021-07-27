@@ -56,7 +56,7 @@ struct BannerCell:View
                 Image(uiImage: image)
                                .resizable()
                                .aspectRatio(contentMode: .fit)
-                    .frame(width:350, height:100)
+                    .frame(width:300, height:100)
                                .onReceive(imageLoader.didChange) { data in
                                self.image = UIImage(data: data) ?? UIImage()
                        }
@@ -64,7 +64,7 @@ struct BannerCell:View
             }
             Text(title).font(.system(size: 25)).padding(.bottom,10)
         }.padding(.all,10)
-        .frame(maxWidth: .infinity-30, alignment: .center)
+        .frame(maxWidth: (.infinity-50), alignment: .center)
         .background(Color.white)
         .modifier(CardModifier())
         
