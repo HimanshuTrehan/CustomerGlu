@@ -56,9 +56,7 @@ public struct LoadAllCampaigns: View {
             }
             
            }
-        .onTapGesture {
-            print("tap")
-        }
+       
         .onAppear(perform: {getCampaign()})
         .navigationViewStyle(StackNavigationViewStyle())
         .navigationBarBackButtonHidden(true)
