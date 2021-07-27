@@ -30,10 +30,12 @@ public struct LoadAllCampaigns: View {
         List(campaigns,id:\.campaignId)
         {
             element in
-            
-           
+            if element.banner?.imageUrl == nil{
+                BannerCell(image_url: "", title: (element.banner?.title)!)
+            }
+            else{
             BannerCell(image_url: (element.banner?.imageUrl!)!, title:(element.banner?.title!)!)
-                
+            }
            }.onAppear(perform: {getCampaign()})
         }
     }
