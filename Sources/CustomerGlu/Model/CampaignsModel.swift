@@ -27,15 +27,15 @@ public struct Campaigns:Codable
 
 public struct Banner:Codable
 {
-    public var title:String?
-    public var body:String?
-    public var imageUrl:String?
-    public var totalUsers:String?
-    public var completedUsers:String?
-    public var inProgressUsers:String?
-    public var totalSteps:String?
-    public var stepsCompleted:String?
-    public var stepsRemaining:String?
+    public var title=""
+    public var body=""
+    public var imageUrl=""
+    public var totalUsers=""
+    public var completedUsers=""
+    public var inProgressUsers=""
+    public var totalSteps=""
+    public var stepsCompleted=""
+    public var stepsRemaining=""
 
     
 }

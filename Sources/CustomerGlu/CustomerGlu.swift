@@ -83,7 +83,6 @@ public class CustomerGlu:ObservableObject {
                         DispatchQueue.main.async{
                           self.campaigndata = mydata
                             completion(self.campaigndata)
-                            print("camopke")
                             print(self.campaigndata)
                         }
 

@@ -11,23 +11,22 @@ import SwiftUI
 
 
 @available(iOS 13.0, *)
-@ViewBuilder func BannerCell(image:String,title:String )->some View {
-        
+
+
+
+struct BannerCell:View
+{
+    var image:String
+    var title:String
+    var body: some View
+    {
         VStack(alignment: .center) {
-            if image==nil
-            {
-                Image(systemName: "clock")
-                    .resizable()
-                    .frame(width: .infinity, height: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .padding(.top,10)
-            }
-            else
-            {
-            Image(image)
+         
+            Image(systemName: "clock")
                 .resizable()
                 .frame(width: .infinity, height: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .padding(.top,10)
-            }
+            
             Text(title).font(.system(size: 25)).padding(.bottom,10)
      
                 
@@ -39,7 +38,10 @@ import SwiftUI
         .background(Color.white)
         .modifier(CardModifier())
         .padding(.all, 10)
-      
+
+    }
+        
+    
         
     }
 
