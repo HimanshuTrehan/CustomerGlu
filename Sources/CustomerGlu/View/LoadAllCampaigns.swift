@@ -37,7 +37,10 @@ public struct LoadAllCampaigns: View {
             BannerCell(image_url: (element.banner?.imageUrl!)!, title:(element.banner?.title!)!)
             }
            }.onAppear(perform: {getCampaign()})
-        }
+        .navigationViewStyle(StackNavigationViewStyle())
+        .navigationBarBackButtonHidden(true)
+        .navigationBarHidden(true)
+    }
     }
 
 
