@@ -25,7 +25,8 @@ public struct LoadAllCampaigns: View {
     
     public var body: some View
     {
-      
+     ScrollView
+     {
         List(campaigns,id:\.campaignId)
         {
             element in
@@ -62,6 +63,8 @@ public struct LoadAllCampaigns: View {
         .navigationBarItems(leading: HStack {
                         
         })
+     }
+      
     }
     }
 
