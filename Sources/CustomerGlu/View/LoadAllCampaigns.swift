@@ -25,45 +25,46 @@ public struct LoadAllCampaigns: View {
     
     public var body: some View
     {
-        ScrollView(.vertical)
-     {
-        List(campaigns,id:\.campaignId)
-        {
-            element in
-            
-            if element.banner != nil
+        ScrollView(showsIndicators: false) {
+            List(campaigns,id:\.campaignId)
             {
-            if element.banner?.imageUrl == nil && element.banner?.title == nil
-                    {
-                BannerCell(image_url: "https://images.unsplash.com/photo-1614680376739-414d95ff43df?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGdhbWVzJTIwYmFubmVyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", title: "",url:element.url )
-                     }
+                element in
                 
-               else if element.banner?.imageUrl == nil{
-                BannerCell(image_url: "https://images.unsplash.com/photo-1614680376739-414d95ff43df?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGdhbWVzJTIwYmFubmVyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", title: (element.banner?.title)!,url: element.url)
-                }
-                
-                else if element.banner?.title == nil
+                if element.banner != nil
                 {
-                    BannerCell(image_url: (element.banner?.imageUrl!)!, title:"",url: element.url)
-                }
-                else{
-                    BannerCell(image_url: (element.banner?.imageUrl!)!, title:(element.banner?.title!)!,url: element.url)
-                }
+                if element.banner?.imageUrl == nil && element.banner?.title == nil
+                        {
+                    BannerCell(image_url: "https://images.unsplash.com/photo-1614680376739-414d95ff43df?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGdhbWVzJTIwYmFubmVyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", title: "",url:element.url )
+                         }
+                    
+                   else if element.banner?.imageUrl == nil{
+                    BannerCell(image_url: "https://images.unsplash.com/photo-1614680376739-414d95ff43df?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGdhbWVzJTIwYmFubmVyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", title: (element.banner?.title)!,url: element.url)
+                    }
+                    
+                    else if element.banner?.title == nil
+                    {
+                        BannerCell(image_url: (element.banner?.imageUrl!)!, title:"",url: element.url)
+                    }
+                    else{
+                        BannerCell(image_url: (element.banner?.imageUrl!)!, title:(element.banner?.title!)!,url: element.url)
+                    }
 
+                }
+                else
+                {
+                    BannerCell(image_url: "https://images.unsplash.com/photo-1614680376739-414d95ff43df?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGdhbWVzJTIwYmFubmVyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", title: "",url: element.url)
+                }
+                
             }
-            else
-            {
-                BannerCell(image_url: "https://images.unsplash.com/photo-1614680376739-414d95ff43df?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGdhbWVzJTIwYmFubmVyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", title: "",url: element.url)
-            }
-            
-           }
+           
+           
+        }.onAppear(perform: {getCampaign()})
+        .navigationViewStyle(StackNavigationViewStyle())
+        .navigationBarItems(leading: HStack {
+                        
+        })
        
-       
-     } .onAppear(perform: {getCampaign()})
-     .navigationViewStyle(StackNavigationViewStyle())
-     .navigationBarItems(leading: HStack {
-                     
-     })
+     
       
     }
     }
