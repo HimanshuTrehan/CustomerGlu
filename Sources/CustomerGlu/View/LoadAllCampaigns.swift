@@ -25,7 +25,7 @@ public struct LoadAllCampaigns: View {
     
     public var body: some View
     {
-     ScrollView
+        ScrollView(.vertical)
      {
         List(campaigns,id:\.campaignId)
         {
@@ -58,12 +58,12 @@ public struct LoadAllCampaigns: View {
             
            }
        
-        .onAppear(perform: {getCampaign()})
-        .navigationViewStyle(StackNavigationViewStyle())
-        .navigationBarItems(leading: HStack {
-                        
-        })
-     }
+       
+     } .onAppear(perform: {getCampaign()})
+     .navigationViewStyle(StackNavigationViewStyle())
+     .navigationBarItems(leading: HStack {
+                     
+     })
       
     }
     }
