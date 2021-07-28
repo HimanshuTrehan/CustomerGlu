@@ -58,7 +58,8 @@ public struct LoadAllCampaigns: View {
             }
            
            
-        }.onAppear(perform: {getCampaign()})
+        }.frame(width: .infinity, height: .infinity)
+        .onAppear(perform: {getCampaign()})
         .navigationViewStyle(StackNavigationViewStyle())
         .navigationBarItems(leading: HStack {
                         
