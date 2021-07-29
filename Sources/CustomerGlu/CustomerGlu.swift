@@ -116,7 +116,7 @@ public class CustomerGlu:ObservableObject {
             "event_name": eventName,
             "user_id": user_id,
             "timestamp": timestamp,
-            "event_properties":"6"
+            "event_properties":evp
         ]
           let jsonData = try! JSONSerialization.data(withJSONObject: eventData, options: .fragmentsAllowed)
             print(jsonData)
