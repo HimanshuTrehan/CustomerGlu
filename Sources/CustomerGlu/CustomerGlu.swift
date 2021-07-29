@@ -109,12 +109,14 @@ public class CustomerGlu:ObservableObject {
         let dateformatter = DateFormatter()
         dateformatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         let timestamp = dateformatter.string(from: date)
+        let evp = String(describing: eventProperties)
+        print(evp)
         let eventData = [
             "event_id": event_id,
             "event_name": eventName,
             "user_id": user_id,
             "timestamp": timestamp,
-            "event_properties":"8"
+            "event_properties":"6"
         ]
           let jsonData = try! JSONSerialization.data(withJSONObject: eventData, options: .fragmentsAllowed)
             print(jsonData)
