@@ -105,40 +105,44 @@ public class CustomerGlu:ObservableObject {
     public func sendEvents(writeKey:String,eventName:String,user_id:String,eventProperties:[String:Any])
       {
         let date = Date()
+        let event_id = UUID().uuidString
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "YYYY-MM-DD"
+        let timestamp = dateformatter.string(from: date)
         let eventData = [
-            "event_id": UUID(),
+            "event_id": event_id,
             "event_name": eventName,
             "user_id": user_id,
-            "timestamp": date,
-            "event_properties":eventProperties
-        ] as [String : Any]
+            "timestamp": timestamp,
+            "event_properties":"8"
+        ]
           let jsonData = try! JSONSerialization.data(withJSONObject: eventData, options: .fragmentsAllowed)
             print(jsonData)
-//           let myurl = URL(string: send_events)
-//          var request = URLRequest(url: myurl!)
-//          request.httpMethod="POST"
-//          request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-//        request.setValue(writeKey, forHTTPHeaderField: "x-api-key")
-//
-//          request.httpBody = jsonData
-//
-//          URLSession.shared.dataTask(with: request) { data, response, error in
-//
-//              if error == nil && data != nil
-//              {
-//                  do {
-//                      let dictonary = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
-//                      as?[String:Any]
-//                      print(dictonary as Any)
-//
-//
-//                  } catch  {
-//                      print("error: \(error)")
-//                  }
-//              }
-//
-//
-//          }.resume()
+           let myurl = URL(string: send_events)
+          var request = URLRequest(url: myurl!)
+          request.httpMethod="POST"
+          request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(writeKey, forHTTPHeaderField: "x-api-key")
+
+        //  request.httpBody = eventData
+
+          URLSession.shared.dataTask(with: request) { data, response, error in
+
+              if error == nil && data != nil
+              {
+                  do {
+                      let dictonary = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
+                      as?[String:Any]
+                      print(dictonary as Any)
+
+
+                  } catch  {
+                      print("error: \(error)")
+                  }
+              }
+
+
+          }.resume()
           
       }
 }
