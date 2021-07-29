@@ -107,7 +107,7 @@ public class CustomerGlu:ObservableObject {
         let date = Date()
         let event_id = UUID().uuidString
         let dateformatter = DateFormatter()
-        dateformatter.dateFormat = "YYYY-MM-DD"
+        dateformatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         let timestamp = dateformatter.string(from: date)
         let eventData = [
             "event_id": event_id,
