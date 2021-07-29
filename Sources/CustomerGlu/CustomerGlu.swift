@@ -12,7 +12,7 @@ public class CustomerGlu:ObservableObject {
     @Published var campaigndata = CampaignsModel()
     var register_url = "https://api.customerglu.com/user/v1/user/sdk?token=true"
     var load_campaigns_url = "https://api.customerglu.com/reward/v1.1/user"
-  
+   var send_events = "https://stream.customerglu.com/v3/server"
     
     public func doRegister(body:Any,completion:@escaping (RegistrationModel)->Void)
       {
@@ -101,4 +101,44 @@ public class CustomerGlu:ObservableObject {
         }.resume()
         
     }
+    
+    public func sendEvents(writeKey:String,eventName:String,user_id:String,eventProperties:[String:Any])
+      {
+        let date = Date()
+        let eventData = [
+            "event_id": UUID(),
+            "event_name": eventName,
+            "user_id": user_id,
+            "timestamp": date,
+            "event_properties":eventProperties
+        ] as [String : Any]
+          let jsonData = try! JSONSerialization.data(withJSONObject: eventData, options: .fragmentsAllowed)
+
+           let myurl = URL(string: send_events)
+          var request = URLRequest(url: myurl!)
+          request.httpMethod="POST"
+          request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(writeKey, forHTTPHeaderField: "x-api-key")
+
+          request.httpBody = jsonData
+
+          URLSession.shared.dataTask(with: request) { data, response, error in
+              
+              if error == nil && data != nil
+              {
+                  do {
+                      let dictonary = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
+                      as?[String:Any]
+                      print(dictonary as Any)
+                 
+
+                  } catch  {
+                      print("error: \(error)")
+                  }
+              }
+           
+              
+          }.resume()
+          
+      }
 }
