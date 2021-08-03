@@ -12,10 +12,8 @@ public struct CustomerWeb: View {
     
     @State var token:String
     @State var my_url=""
-    @State var dismissModal: (() -> Void)
-    public init(cus_token:String,dismissModal:@escaping (() -> Void)){
+    public init(cus_token:String){
         token = cus_token
-        self.dismissModal = dismissModal
     }
   
    public var body: some View {
@@ -27,9 +25,7 @@ public struct CustomerWeb: View {
             }
             else
             {
-                CustomerWebView(dismiss: {
-                    dismissModal()
-                },my_url: my_url)
+                CustomerWebView(my_url: my_url)
             }
         }.onAppear(perform: getCampaigns)
         .navigationViewStyle(StackNavigationViewStyle())
