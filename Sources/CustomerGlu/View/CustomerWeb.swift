@@ -12,6 +12,7 @@ public struct CustomerWeb: View {
     
     @State var token:String
     @State var my_url=""
+    var dismissModal: (() -> Void)?
     public init(cus_token:String){
         print("web")
         token = cus_token
@@ -27,7 +28,7 @@ public struct CustomerWeb: View {
             else
             {
                 CustomerWebView(dismiss: {
-                    print("fsdsdds")
+                    dismissModal
                 },my_url: my_url)
             }
         }.onAppear(perform: getCampaigns)
