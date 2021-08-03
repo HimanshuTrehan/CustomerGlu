@@ -18,6 +18,7 @@ static var keyWin: UIWindow? {
     }
 }
 }
+@available(iOS 13.0, *)
 public struct CustomerWebView: UIViewRepresentable {
     var dismiss: (() -> Void)?
     @State var my_url:String
