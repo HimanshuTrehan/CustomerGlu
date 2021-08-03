@@ -13,9 +13,10 @@ public struct CustomerWeb: View {
     @State var token:String
     @State var my_url=""
     var dismissModal: (() -> Void)?
-    public init(cus_token:String){
+    public init(cus_token:String,dismissModal: (() -> Void)?){
         print("web")
         token = cus_token
+        self.dismissModal = dismissModal
     }
   
    public var body: some View {
