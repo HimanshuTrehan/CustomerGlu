@@ -12,9 +12,8 @@ public struct CustomerWeb: View {
     
     @State var token:String
     @State var my_url=""
-    var dismissModal: (() -> Void)?
-    public init(cus_token:String,dismissModal: (() -> Void)?){
-        print("web")
+    @State var dismissModal: (() -> Void)
+    public init(cus_token:String,dismissModal:@escaping (() -> Void)){
         token = cus_token
         self.dismissModal = dismissModal
     }
@@ -29,7 +28,7 @@ public struct CustomerWeb: View {
             else
             {
                 CustomerWebView(dismiss: {
-                    dismissModal
+                    dismissModal()
                 },my_url: my_url)
             }
         }.onAppear(perform: getCampaigns)
