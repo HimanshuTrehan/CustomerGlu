@@ -6,13 +6,12 @@
 //
 
 import SwiftUI
-
+import UIKit
 @available(iOS 13.0, *)
 public struct CustomerWeb: View {
- //
+    
     @State var token:String
     @State var my_url=""
-  
     public init(cus_token:String){
         print("web")
         token = cus_token
@@ -27,7 +26,9 @@ public struct CustomerWeb: View {
             }
             else
             {
-                CustomerWebView(my_url: my_url)
+                CustomerWebView(dismiss: {
+                    print("fsdsdds")
+                },my_url: my_url)
             }
         }.onAppear(perform: getCampaigns)
         .navigationViewStyle(StackNavigationViewStyle())
@@ -39,6 +40,8 @@ public struct CustomerWeb: View {
 //        self.presentationMode.wrappedValue.dismiss()
 //    }
     
+    
+   
     public func getCampaigns()
      {
         CustomerGlu().retrieveData(customer_token: token) { CampaignsModel in

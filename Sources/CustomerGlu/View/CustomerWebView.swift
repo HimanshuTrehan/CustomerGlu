@@ -7,14 +7,15 @@
 
 import SwiftUI
 import WebKit
+import UIKit
 @available(iOS 13.0, *)
 
 public struct CustomerWebView: UIViewRepresentable {
-    
+    var dismiss: (() -> Void)?
     @State var my_url:String
     var token=""
     @Environment(\.presentationMode) var presentation
-
+    
    public class Coordinator: NSObject, WKNavigationDelegate, WKScriptMessageHandler {
         var webView: WKWebView?
     var parent:CustomerWebView
@@ -46,6 +47,7 @@ public struct CustomerWebView: UIViewRepresentable {
             {
                 print("close")
                 parent.presentation.wrappedValue.dismiss()
+                parent.dismiss!()
                 
             }
             
@@ -101,6 +103,7 @@ public struct CustomerWebView: UIViewRepresentable {
         return Coordinator(parent: self)
     }
    public  func makeUIView(context: Context) -> WKWebView  {
+        
         let coordinator = makeCoordinator()
           let userContentController = WKUserContentController()
           userContentController.add(coordinator, name: "callback")
