@@ -9,7 +9,15 @@ import SwiftUI
 import WebKit
 import UIKit
 @available(iOS 13.0, *)
-
+extension UIApplication{
+static var keyWin: UIWindow? {
+    if #available(iOS 13, *) {
+        return UIApplication.shared.windows.first { $0.isKeyWindow }
+    } else {
+        return UIApplication.shared.keyWindow
+    }
+}
+}
 public struct CustomerWebView: UIViewRepresentable {
     var dismiss: (() -> Void)?
     @State var my_url:String
@@ -47,8 +55,7 @@ public struct CustomerWebView: UIViewRepresentable {
             {
                 print("close")
                 parent.presentation.wrappedValue.dismiss()
-                parent.dismiss!()
-                
+                UIApplication.keyWin?.rootViewController?.dismiss(animated: true, completion: nil)
             }
             
             if bodyStruct?.eventName == "OPEN_DEEPLINK" {
