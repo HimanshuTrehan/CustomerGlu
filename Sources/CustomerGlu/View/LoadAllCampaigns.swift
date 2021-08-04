@@ -52,9 +52,10 @@ public struct LoadAllCampaigns: View {
                     BannerCell(image_url: (element.banner?.imageUrl!)!, title:"",url: element.url)
                 }
                 else{
-                    NavigationLink(destination:RewardWeb(url:element.url)) {
-                        BannerCell(image_url: (element.banner?.imageUrl!)!, title:(element.banner?.title!)!,url: element.url)
+                    BannerCell(image_url: (element.banner?.imageUrl!)!, title:(element.banner?.title!)!,url: element.url).onTapGesture {
+                        RewardWeb(url: element.url)
                     }
+                    
                     
                     
                
