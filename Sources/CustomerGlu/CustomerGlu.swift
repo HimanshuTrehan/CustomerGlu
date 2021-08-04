@@ -1,6 +1,6 @@
 import Foundation
 import SwiftUI
-
+import UIKit
 @available(iOS 13.0, *)
 public class CustomerGlu:ObservableObject {
     
@@ -101,17 +101,19 @@ public class CustomerGlu:ObservableObject {
         }.resume()
         
     }
-    public func presentSwiftUIView(view:AnyView) {
-        
-        let swiftUIView = view
-    //UIHostingController
-//        UINavigationController(rootViewController: UIViewController)
-        let hostingController = UIHostingController(rootView: swiftUIView)
-        hostingController.modalPresentationStyle = .fullScreen
-        
-        UIApplication.keyWin?.rootViewController?.present(hostingController, animated: true, completion: nil)
-        
-    }
+//    public func presentSwiftUIView(view:AnyView) {
+//
+//        let swiftUIView = view
+//    //UIHostingController
+////        UINavigationController(rootViewController: UIViewController)
+//        let hostingController = UIHostingController(rootView: swiftUIView)
+//        hostingController.modalPresentationStyle = .fullScreen
+//
+//        UIApplication.keyWin?.rootViewController?.present(hostingController, animated: true, completion: nil)
+//
+//    }
+    
+
     
     public func sendEvents(writeKey:String,eventName:String,user_id:String,eventProperties:[String:Any])
       {
