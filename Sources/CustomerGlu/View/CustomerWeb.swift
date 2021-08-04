@@ -12,6 +12,7 @@ public struct CustomerWeb: View {
     
     @State var token:String
     @State var my_url=""
+
     public init(cus_token:String){
         token = cus_token
     }
