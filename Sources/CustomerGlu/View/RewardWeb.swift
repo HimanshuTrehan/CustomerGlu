@@ -18,7 +18,10 @@ struct RewardWeb: View {
             EmptyView()
         }
         else{
+            NavigationView
+            {
         CustomerWebView(my_url: url)
+            }
         }
         }.navigationViewStyle(StackNavigationViewStyle())
         .navigationBarBackButtonHidden(true)
