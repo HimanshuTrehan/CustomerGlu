@@ -52,23 +52,25 @@ public struct LoadAllCampaigns: View {
                     BannerCell(image_url: (element.banner?.imageUrl!)!, title:"",url: element.url)
                 }
                 else{
-                    BannerCell(image_url: (element.banner?.imageUrl!)!, title:(element.banner?.title!)!,url: element.url)
+//                    BannerCell(image_url: (element.banner?.imageUrl!)!, title:(element.banner?.title!)!,url: element.url)
+                    
+                    VStack
+                    {
+                        Button {
+                            print("clicked")
+                        } label: {
+                            Text("Button")
+                        }
+                        
+                    }
                 }
 
             }
             else
             {
-//    BannerCell(image_url: "https://images.unsplash.com/photo-1614680376739-414d95ff43df?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGdhbWVzJTIwYmFubmVyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", title: "",url: element.url)
+    BannerCell(image_url: "https://images.unsplash.com/photo-1614680376739-414d95ff43df?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGdhbWVzJTIwYmFubmVyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", title: "",url: element.url)
                 
-                VStack
-                {
-                    Button {
-                        print("clicked")
-                    } label: {
-                        Text("Button")
-                    }
-                    
-                }
+             
                 
              
             }
