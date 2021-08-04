@@ -25,12 +25,7 @@ public struct LoadAllCampaigns: View {
     
     public var body: some View
     {
-       Text("Rewards")
-        Button {
-            print("clicked")
-        } label: {
-            Text("Button")
-        }
+
 
         List(campaigns,id:\.campaignId)
         {

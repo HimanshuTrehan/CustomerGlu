@@ -56,7 +56,7 @@ struct BannerCell:View
                 Image(uiImage: image)
                                .resizable()
                                .aspectRatio(contentMode: .fit)
-                    .frame(width:300, height:100)
+                    .frame(width:(.infinity-40), height:100)
                                .onReceive(imageLoader.didChange) { data in
                                self.image = UIImage(data: data) ?? UIImage()
                        }
