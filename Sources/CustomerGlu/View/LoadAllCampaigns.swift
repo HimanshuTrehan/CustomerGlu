@@ -25,7 +25,7 @@ public struct LoadAllCampaigns: View {
     
     public var body: some View
     {
-      
+       Text("Rewards")
         List(campaigns,id:\.campaignId)
         {
             element in
@@ -57,13 +57,7 @@ public struct LoadAllCampaigns: View {
             
         }.onAppear(perform: {getCampaign()})
         .navigationViewStyle(StackNavigationViewStyle())
-        .navigationBarItems(leading: HStack {
-                        
-        })
        
-       
-     
-      
     }
     }
 
