@@ -62,7 +62,12 @@ public struct LoadAllCampaigns: View {
                 
                 VStack
                 {
-                    Text("Helo")
+                    Button {
+                        print("clicked")
+                    } label: {
+                        Text("Button")
+                    }
+                    
                 }
                 
              
