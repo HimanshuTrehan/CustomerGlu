@@ -52,17 +52,12 @@ public struct LoadAllCampaigns: View {
                     BannerCell(image_url: (element.banner?.imageUrl!)!, title:"",url: element.url)
                 }
                 else{
-//                    BannerCell(image_url: (element.banner?.imageUrl!)!, title:(element.banner?.title!)!,url: element.url)
-                    
-                    VStack
-                    {
-                        Button {
-                            print("clicked")
-                        } label: {
-                            Text("Button")
-                        }
-                        
+                    NavigationLink(destination:RewardWeb(url:element.url)) {
+                        BannerCell(image_url: (element.banner?.imageUrl!)!, title:(element.banner?.title!)!,url: element.url)
                     }
+                    
+                    
+               
                 }
 
             }
