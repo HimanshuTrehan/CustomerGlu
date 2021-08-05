@@ -47,8 +47,7 @@ public struct LoadAllCampaigns: View {
                     .navigationBarHidden(true)
                 Spacer()
             }.padding(.all,10)
-            ScrollView
-            {
+           
             List(campaigns,id:\.campaignId)
                   {
                       element in
@@ -81,7 +80,7 @@ public struct LoadAllCampaigns: View {
                     
                        
                       }
-            }
+            
 
             }.background(Color.white)
             Spacer()
