@@ -65,6 +65,9 @@ public struct LoadAllCampaigns: View {
                       }
                       
                   }.onAppear(perform: {getCampaign()})
+            .navigationViewStyle(StackNavigationViewStyle())
+            .navigationBarBackButtonHidden(true)
+            .navigationBarHidden(true)
                //   .navigationViewStyle(StackNavigationViewStyle())
         }
 
