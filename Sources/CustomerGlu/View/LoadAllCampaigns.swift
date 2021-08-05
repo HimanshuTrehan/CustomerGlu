@@ -92,6 +92,7 @@ public struct LoadAllCampaigns: View {
         }
         
             .navigationBarHidden(true)
+        .background(Color.white)
       
        
     }
