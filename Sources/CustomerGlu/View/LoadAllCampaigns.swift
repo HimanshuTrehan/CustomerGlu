@@ -9,6 +9,8 @@ import SwiftUI
 
 @available(iOS 13.0, *)
 public struct LoadAllCampaigns: View {
+    var height = UIScreen.main.bounds.height
+    var width = UIScreen.main.bounds.width
     @Environment(\.presentationMode) var presentationMode
     var customer_token:String
     
@@ -86,8 +88,8 @@ public struct LoadAllCampaigns: View {
             }
 
                   }.onAppear(perform: {getCampaign()})
+         .frame(width: height, height: width)
          .background(Color.white)
-        .navigationViewStyle(StackNavigationViewStyle())
         }
         
             .navigationBarHidden(true)
