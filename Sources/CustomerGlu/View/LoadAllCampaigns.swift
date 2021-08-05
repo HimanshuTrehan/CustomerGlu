@@ -82,10 +82,11 @@ public struct LoadAllCampaigns: View {
                   
                      
                     }
-                }
+                }.buttonStyle(PlainButtonStyle())
             
 
             }.background(Color.white)
+            
             
             Spacer()
 
