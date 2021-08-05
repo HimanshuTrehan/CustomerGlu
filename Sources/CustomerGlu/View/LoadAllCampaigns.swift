@@ -44,11 +44,10 @@ public struct LoadAllCampaigns: View {
                 Text("Campaigns")
                     .bold()
                     .font(.system(size: 30))
-                    .navigationBarHidden(true)
                 Spacer()
-            }
-            
-
+            }.padding(.all,10)
+            ScrollView
+            {
             List(campaigns,id:\.campaignId)
                   {
                       element in
@@ -85,6 +84,7 @@ public struct LoadAllCampaigns: View {
                        
                       }
             }
+            }.background(Color.white)
             Spacer()
                   }.onAppear(perform: {getCampaign()})
          .background(Color.white)
