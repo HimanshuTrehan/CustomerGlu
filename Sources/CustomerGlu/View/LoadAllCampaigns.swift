@@ -86,6 +86,8 @@ public struct LoadAllCampaigns: View {
             
 
             }.background(Color.white)
+            .listStyle(PlainListStyle())
+
             
             
             Spacer()
