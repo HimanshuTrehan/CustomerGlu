@@ -84,17 +84,14 @@ public struct LoadAllCampaigns: View {
                        
                       }
             }
-            Spacer()
 
                   }.onAppear(perform: {getCampaign()})
          .background(Color.white)
-         .foregroundColor(Color.white)
-               //   .navigationViewStyle(StackNavigationViewStyle())
+        .navigationViewStyle(StackNavigationViewStyle())
         }
         
             .navigationBarHidden(true)
         .background(Color.white)
-        .foregroundColor(Color.white)
       
        
     }
