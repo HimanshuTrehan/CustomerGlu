@@ -44,6 +44,7 @@ public struct LoadAllCampaigns: View {
                 Text("Campaigns")
                     .bold()
                     .font(.system(size: 30))
+                    .navigationBarHidden(true)
                 Spacer()
             }.padding(.all,10)
             ScrollView
@@ -70,9 +71,6 @@ public struct LoadAllCampaigns: View {
                           else{
                               BannerCell(image_url: (element.banner?.imageUrl!)!, title:(element.banner?.title!)!,url: element.url)
                               
-                              
-                              
-                         
                           }
 
                       }
@@ -84,9 +82,11 @@ public struct LoadAllCampaigns: View {
                        
                       }
             }
-                Spacer()
 
             }.background(Color.white)
+            Spacer()
+
+            
                   }.onAppear(perform: {getCampaign()})
          .background(Color.white)
         }
