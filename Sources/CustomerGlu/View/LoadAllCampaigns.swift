@@ -36,6 +36,7 @@ public struct LoadAllCampaigns: View {
                     .frame(width: 30, height: 30, alignment: .center)
                     .onTapGesture {
                         presentationMode.wrappedValue.dismiss()
+                        UIApplication.keyWin?.rootViewController?.dismiss(animated: true, completion: nil)
                     }
                 
                 Text("Campaigns")
