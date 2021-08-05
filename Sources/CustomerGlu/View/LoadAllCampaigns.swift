@@ -32,6 +32,7 @@ public struct LoadAllCampaigns: View {
             Text("Campaigns")
                 .bold()
                 .font(.system(size: 30))
+                .navigationBarHidden(true)
 
             List(campaigns,id:\.campaignId)
                   {
@@ -72,13 +73,11 @@ public struct LoadAllCampaigns: View {
             }
             Spacer()
 
-                  }
+                  }.onAppear(perform: {getCampaign()})
                //   .navigationViewStyle(StackNavigationViewStyle())
         }
-        .onAppear(perform: {getCampaign()})
-  .navigationViewStyle(StackNavigationViewStyle())
-  .navigationBarBackButtonHidden(true)
-  .navigationBarHidden(true)
+        
+            .navigationBarHidden(true)
       
        
     }
