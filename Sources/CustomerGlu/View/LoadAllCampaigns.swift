@@ -27,6 +27,12 @@ public struct LoadAllCampaigns: View {
     {
         NavigationView
         {
+            
+            Text("Campaigns")
+                .bold()
+                .font(.system(size: 30))
+                .navigationBarHidden(true)
+
             List(campaigns,id:\.campaignId)
                   {
                       element in
