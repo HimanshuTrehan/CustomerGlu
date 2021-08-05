@@ -86,7 +86,7 @@ public struct LoadAllCampaigns: View {
                        
                       }
             }
-
+            Spacer()
                   }.onAppear(perform: {getCampaign()})
          .background(Color.white)
         }
