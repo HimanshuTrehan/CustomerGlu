@@ -88,11 +88,12 @@ public struct LoadAllCampaigns: View {
             }
 
                   }.onAppear(perform: {getCampaign()})
-         .frame(width: height, height: width)
          .background(Color.white)
         }
         
             .navigationBarHidden(true)
+        .frame(width: height, height: width)
+
         .background(Color.white)
       
        
