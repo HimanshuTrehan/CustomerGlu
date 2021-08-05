@@ -64,7 +64,7 @@ struct BannerCell:View
             }
             Text(title).font(.system(size: 25)).padding(.bottom,10)
         }
-        .frame(maxWidth: (.infinity-10), alignment: .center)
+        .frame(maxWidth: (.infinity-40), alignment: .center)
         .background(Color.white)
         .modifier(CardModifier())
         
