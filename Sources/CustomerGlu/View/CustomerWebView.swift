@@ -23,6 +23,7 @@ public struct CustomerWebView: UIViewRepresentable {
     
     @State var my_url:String
     @State var fromWallet = false
+    @State var fromUikit = false
     var token=""
     @Environment(\.presentationMode) var presentation
     
@@ -56,7 +57,7 @@ public struct CustomerWebView: UIViewRepresentable {
             if bodyStruct?.eventName == "CLOSE"
             {
                 print("close")
-                if(parent.fromWallet)
+                if(parent.fromWallet && parent.fromUikit)
                 {
                     UIApplication.keyWin?.rootViewController?.dismiss(animated: true, completion: nil)
                 }
