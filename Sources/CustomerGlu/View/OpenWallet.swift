@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 @available(iOS 13.0, *)
 
-public struct CustomerWeb: View {
+public struct OpenWallet: View {
     
     @State var token:String
     @State var my_url=""
@@ -27,7 +27,7 @@ public struct CustomerWeb: View {
             }
             else
             {
-                CustomerWebView(my_url: my_url)
+                CustomerWebView(my_url: my_url,fromWallet: true)
             }
         }.onAppear(perform: getCampaigns)
         .navigationViewStyle(StackNavigationViewStyle())

@@ -22,6 +22,7 @@ static var keyWin: UIWindow? {
 public struct CustomerWebView: UIViewRepresentable {
     
     @State var my_url:String
+    @State var fromWallet = false
     var token=""
     @Environment(\.presentationMode) var presentation
     
@@ -55,8 +56,14 @@ public struct CustomerWebView: UIViewRepresentable {
             if bodyStruct?.eventName == "CLOSE"
             {
                 print("close")
+                if(parent.fromWallet)
+                {
+                    UIApplication.keyWin?.rootViewController?.dismiss(animated: true, completion: nil)
+                }
+                else{
                 parent.presentation.wrappedValue.dismiss()
-//                UIApplication.keyWin?.rootViewController?.dismiss(animated: true, completion: nil)
+                }
+
             }
             
             if bodyStruct?.eventName == "OPEN_DEEPLINK" {
@@ -83,9 +90,8 @@ public struct CustomerWebView: UIViewRepresentable {
            if    let text = share?.data?.text
            {
             print("text",text)
-                    if let url = URL(string: "https://api.whatsapp.com/send?text=\(text)") {
+                    if let url = URL(string: "whatsapp://send?text=\(text)") {
                            UIApplication.shared.open(url)
-                                    
                     }
                     else{
                         print("Can't open whatsapp")
