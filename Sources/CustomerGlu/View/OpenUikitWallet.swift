@@ -24,7 +24,7 @@ struct OpenUiKitWallet: View {
             }
             else
             {
-                CustomerWebView(my_url: my_url,fromWallet: true,fromUikit: false)
+                CustomerWebView(my_url: my_url,fromWallet: true,fromUikit: true)
             }
         }.onAppear(perform: getCampaigns)
         .navigationViewStyle(StackNavigationViewStyle())
