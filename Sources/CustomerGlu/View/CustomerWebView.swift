@@ -56,7 +56,7 @@ public struct CustomerWebView: UIViewRepresentable {
             {
                 print("close")
                 parent.presentation.wrappedValue.dismiss()
-                UIApplication.keyWin?.rootViewController?.dismiss(animated: true, completion: nil)
+//                UIApplication.keyWin?.rootViewController?.dismiss(animated: true, completion: nil)
             }
             
             if bodyStruct?.eventName == "OPEN_DEEPLINK" {

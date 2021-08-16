@@ -105,5 +105,12 @@ public struct LoadAllCampaigns: View {
     }
     }
 
+@available(iOS 13.0, *)
+class AllCampaignsHostingController: UIHostingController<LoadAllCampaigns> {
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder, rootView: LoadAllCampaigns(customer_token: "j"))
+    }
+}
+
 
 
