@@ -57,7 +57,7 @@ public struct CustomerWebView: UIViewRepresentable {
             if bodyStruct?.eventName == "CLOSE"
             {
                 print("close")
-                if( parent.fromUikit)
+                if(parent.fromWallet)
                 {
                     print("UIKIT")
                     UIApplication.keyWin?.rootViewController?.dismiss(animated: true, completion: nil)
