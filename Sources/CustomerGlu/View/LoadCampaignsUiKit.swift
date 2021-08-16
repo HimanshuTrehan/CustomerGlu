@@ -1,23 +1,23 @@
 //
-//  SwiftUIView.swift
+//  File.swift
 //  
 //
-//  Created by Himanshu Trehan on 26/07/21.
+//  Created by Himanshu Trehan on 16/08/21.
 //
+
+import Foundation
+
 
 import SwiftUI
 
 @available(iOS 13.0, *)
-public struct LoadAllCampaigns: View {
+ struct LoadCampaignsUiKit: View {
     var height = UIScreen.main.bounds.height
     var width = UIScreen.main.bounds.width
     @Environment(\.presentationMode) var presentationMode
     var customer_token:String
     
-    public init(customer_token:String)
-    {
-        self.customer_token = customer_token
-    }
+
     @State var campaigns:[Campaigns]=[]
     
     public func getCampaign() {
@@ -37,8 +37,7 @@ public struct LoadAllCampaigns: View {
                 Image(systemName: "chevron.left")
                     .frame(width: 30, height: 30, alignment: .center)
                     .onTapGesture {
-                        presentationMode.wrappedValue.dismiss()
-                    
+                        UIApplication.keyWin?.rootViewController?.dismiss(animated: true, completion: nil)
                     }
                 
                 Text("Campaigns")

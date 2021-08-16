@@ -115,6 +115,20 @@ public class CustomerGlu:ObservableObject {
 
     }
     
+    public func loadAllCampaignsUiKit(cus_token:String) {
+
+        let swiftUIView = LoadCampaignsUiKit(customer_token: cus_token)
+    //UIHostingController
+//        UINavigationController(rootViewController: UIViewController)
+        let hostingController = UIHostingController(rootView: swiftUIView)
+        hostingController.modalPresentationStyle = .fullScreen
+    
+//       self.navigationController?.pushViewController(hostingController, animated: true)
+        
+        UIApplication.keyWin?.rootViewController?.present(hostingController, animated: true, completion: nil)
+
+    }
+    
 
     
     public func sendEvents(writeKey:String,eventName:String,user_id:String,eventProperties:[String:Any])
