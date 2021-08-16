@@ -101,7 +101,7 @@ public class CustomerGlu:ObservableObject {
         }.resume()
         
     }
-    func openWallet() {
+  public func openWallet() {
 
         let swiftUIView = OpenWallet(cus_token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJnbHUiLCJnbHVJZCI6IjIzZmRkOWU0LWRjYWMtNDlkYS1hMWI5LThmYWRjOGU2YWZkNSIsImNsaWVudCI6Ijg0YWNmMmFjLWIyZTAtNDkyNy04NjUzLWNiYTJiODM4MTZjMiIsImRldmljZUlkIjoiZGV2aWNlYiIsImRldmljZVR5cGUiOiJhbmRyb2lkIiwiaWF0IjoxNjI4MDY0NzYxLCJleHAiOjE2NTk2MDA3NjF9.x86E0pKN2n_nc_If6nqL3CsxGql78q4ehtgwbUdaAwg",fromKit: true)
     //UIHostingController
