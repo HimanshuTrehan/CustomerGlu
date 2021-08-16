@@ -59,9 +59,11 @@ public struct CustomerWebView: UIViewRepresentable {
                 print("close")
                 if(parent.fromWallet && parent.fromUikit)
                 {
+                    print("UIKIT")
                     UIApplication.keyWin?.rootViewController?.dismiss(animated: true, completion: nil)
                 }
                 else{
+                    print("SwiftUI")
                 parent.presentation.wrappedValue.dismiss()
                 }
 
