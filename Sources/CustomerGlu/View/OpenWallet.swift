@@ -29,7 +29,7 @@ public struct OpenWallet: View {
             }
             else
             {
-                CustomerWebView(my_url: my_url,fromWallet: true,fromUikit: fromUikit)
+                CustomerWebView(my_url: my_url,fromWallet: true,fromUikit: true)
             }
         }.onAppear(perform: getCampaigns)
         .navigationViewStyle(StackNavigationViewStyle())
