@@ -12,31 +12,56 @@ import Foundation
 import UIKit
 @available(iOS 13.0, *)
 
-class ImageLoader: ObservableObject {
-    var didChange = PassthroughSubject<Foundation.Data, Never>()
-    var data = Foundation.Data() {
-        didSet {
-            didChange.send(data)
-        }
-    }
+//class ImageLoader: ObservableObject {
+//    var didChange = PassthroughSubject<Foundation.Data, Never>()
+//    var data = Foundation.Data() {
+//        didSet {
+//            didChange.send(data)
+//        }
+//    }
+//
+//    init(urlString:String) {
+//        guard let url = URL(string: urlString) else { return }
+//        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+//            guard let data = data else { return }
+//            DispatchQueue.main.async {
+//                self.data = data
+//            }
+//        }
+//        task.resume()
+//    }
+//}
 
-    init(urlString:String) {
-        guard let url = URL(string: urlString) else { return }
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data else { return }
-            DispatchQueue.main.async {
-                self.data = data
+extension String
+{
+    func load()-> UIImage
+    {
+        
+        do
+        {
+            guard let url = URL(string: self)
+            
+            else
+            {
+                return UIImage()
             }
+            let data:Foundation.Data = try Foundation.Data(contentsOf: url)
+            
+            return UIImage(data: data)!
+            
         }
-        task.resume()
+        catch
+        {
+            print("not found")
+        }
+        return UIImage()
     }
 }
-
 
 @available(iOS 13.0, *)
 struct BannerCell:View
 {
-    @ObservedObject var imageLoader:ImageLoader
+  //  @ObservedObject var imageLoader:ImageLoader
     @State var image:UIImage = UIImage()
     var title:String
     var url:String
@@ -45,7 +70,7 @@ struct BannerCell:View
     init(image_url:String,title:String,url:String) {
         self.title = title
         self.url = url
-        imageLoader = ImageLoader(urlString:image_url)
+     //   imageLoader = ImageLoader(urlString:image_url)
         
     }
     var body: some View
@@ -53,13 +78,14 @@ struct BannerCell:View
         VStack(alignment: .center) {
                 
             NavigationLink(destination: RewardWeb(url: url)) {
-                Image(uiImage: image)
-                               .resizable()
-                               .aspectRatio(contentMode: .fit)
-                    .frame(width:300, height:100)
-                               .onReceive(imageLoader.didChange) { data in
-                               self.image = UIImage(data: data) ?? UIImage()
-                       }
+//                Image(uiImage: image)
+//                               .resizable()
+//                               .aspectRatio(contentMode: .fit)
+//                    .frame(width:300, height:100)
+//                               .onReceive(imageLoader.didChange) { data in
+//                               self.image = UIImage(data: data) ?? UIImage()
+//                       }
+                Image(uiImage: url.load())
 
             }
             Text(title).font(.system(size: 25)).padding(.bottom,10)
