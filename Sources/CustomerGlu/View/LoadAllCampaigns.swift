@@ -4,6 +4,7 @@
 //
 //  Created by Himanshu Trehan on 26/07/21.
 //
+#if canImport(SwiftUI)
 
 import SwiftUI
 
@@ -108,3 +109,4 @@ public struct LoadAllCampaigns: View {
 
 
 
+#endif

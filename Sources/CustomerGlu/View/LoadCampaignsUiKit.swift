@@ -4,6 +4,7 @@
 //
 //  Created by Himanshu Trehan on 16/08/21.
 //
+#if canImport(SwiftUI)
 
 import Foundation
 
@@ -103,6 +104,8 @@ import SwiftUI
        
     }
     }
+
+#endif
 
 
 

@@ -4,6 +4,7 @@
 //
 //  Created by Himanshu Trehan on 27/07/21.
 //
+#if canImport(SwiftUI)
 
 import SwiftUI
 
@@ -29,3 +30,4 @@ struct RewardWeb: View {
 }
 
 
+#endif

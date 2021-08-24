@@ -4,6 +4,7 @@
 //
 //  Created by Himanshu Trehan on 23/07/21.
 //
+#if canImport(SwiftUI)
 
 import SwiftUI
 import WebKit
@@ -146,3 +147,4 @@ public struct CustomerWebView: UIViewRepresentable {
     
     }
 }
+#endif
