@@ -45,6 +45,7 @@ public struct OpenWallet: View {
    
     public func getCampaigns()
      {
+        
         CustomerGlu().retrieveData(customer_token: token) { CampaignsModel in
              my_url = CampaignsModel.defaultUrl
             print(my_url)
