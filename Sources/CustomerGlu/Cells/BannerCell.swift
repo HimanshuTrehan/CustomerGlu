@@ -5,7 +5,7 @@
 //  Created by Himanshu Trehan on 27/07/21.
 //
 
-
+#if canImport(Combine)
 import SwiftUI
 import Combine
 import Foundation
@@ -110,3 +110,4 @@ struct CardModifier: ViewModifier {
             
     }
 }
+#endif
