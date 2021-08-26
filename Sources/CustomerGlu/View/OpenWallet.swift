@@ -12,12 +12,12 @@ import UIKit
 
 public struct OpenWallet: View {
     
-    @State var token:String
+   // @State var token:String
     @State var fromUikit = false
     @State var my_url=""
 
     public init(cus_token:String,fromKit:Bool = false){
-        token = cus_token
+     //   token = cus_token
         fromUikit = fromKit
     }
   
@@ -32,7 +32,8 @@ public struct OpenWallet: View {
             {
                 CustomerWebView(my_url: my_url,fromWallet: true,fromUikit: false)
             }
-        }.onAppear(perform: getCampaigns)
+        }
+        //.onAppear(perform: getCampaigns)
         .navigationViewStyle(StackNavigationViewStyle())
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
@@ -47,7 +48,7 @@ public struct OpenWallet: View {
     public func getCampaigns()
      {
         
-        CustomerGlu().retrieveData(customer_token: token) { CampaignsModel in
+        CustomerGlu().retrieveData(customer_token: "") { CampaignsModel in
              my_url = CampaignsModel.defaultUrl
             print(my_url)
         }
