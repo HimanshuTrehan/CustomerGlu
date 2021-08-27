@@ -12,12 +12,12 @@ import UIKit
 
 public struct OpenWallet: View {
     
-   // @State var token:String
+    @State var token:String
     @State var fromUikit = false
     @State var my_url=""
 
     public init(cus_token:String,fromKit:Bool = false){
-     //   token = cus_token
+        token = cus_token
         fromUikit = fromKit
     }
   
@@ -33,7 +33,7 @@ public struct OpenWallet: View {
                 CustomerWebView(my_url: my_url,fromWallet: true,fromUikit: false)
             }
         }
-        //.onAppear(perform: getCampaigns)
+        .onAppear(perform: getCampaigns)
         .navigationViewStyle(StackNavigationViewStyle())
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
