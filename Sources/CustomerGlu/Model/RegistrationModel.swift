@@ -9,9 +9,9 @@ import Foundation
 
 public  struct RegistrationModel:Codable {
    public var success:Bool?
-   public var data: Data?
+   public var data: MyData?
 }
-public  struct Data:Codable {
+public  struct MyData:Codable {
     public var token:String?
     public var user:User?
     
