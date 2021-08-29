@@ -129,7 +129,7 @@ public class CustomerGlu:ObservableObject {
 
     }
     
-    public func displatNotification(remoteMessage:AnyHashable) {
+    public func displayNotification(remoteMessage:AnyHashable) {
         
             
         let swiftUIView = NotificationHandler(nudge_url: "https://google.com")
