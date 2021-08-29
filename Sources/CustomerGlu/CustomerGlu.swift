@@ -129,18 +129,25 @@ public class CustomerGlu:ObservableObject {
 
     }
     
-    public func displayNotification(remoteMessage:AnyHashable) {
+    public func displayNotification(remoteMessage:[String:AnyHashable]) {
         
+        let myalert = remoteMessage["alert"] as? [String:AnyHashable]
+        let Type = myalert?["type"]
+        if Type as! String == "CustomerGlu"
+        {
+            print("CustomerGlu")
+            let swiftUIView = NotificationHandler(nudge_url: "https://google.com")
+        //UIHostingController
+    //        UINavigationController(rootViewController: UIViewController)
+            let hostingController = UIHostingController(rootView: swiftUIView)
+            hostingController.modalPresentationStyle = .fullScreen
+        
+    //       self.navigationController?.pushViewController(hostingController, animated: true)
             
-        let swiftUIView = NotificationHandler(nudge_url: "https://google.com")
-    //UIHostingController
-//        UINavigationController(rootViewController: UIViewController)
-        let hostingController = UIHostingController(rootView: swiftUIView)
-        hostingController.modalPresentationStyle = .fullScreen
-    
-//       self.navigationController?.pushViewController(hostingController, animated: true)
-        
-        UIApplication.keyWin?.rootViewController?.present(hostingController, animated: true, completion: nil)
+            UIApplication.keyWin?.rootViewController?.present(hostingController, animated: true, completion: nil)
+        }
+            
+     
 
     }
     
