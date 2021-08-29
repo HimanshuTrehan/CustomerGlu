@@ -129,6 +129,21 @@ public class CustomerGlu:ObservableObject {
 
     }
     
+    public func displatNotification(remoteMessage:AnyHashable) {
+        
+            
+        let swiftUIView = NotificationHandler(nudge_url: "https://google.com")
+    //UIHostingController
+//        UINavigationController(rootViewController: UIViewController)
+        let hostingController = UIHostingController(rootView: swiftUIView)
+        hostingController.modalPresentationStyle = .fullScreen
+    
+//       self.navigationController?.pushViewController(hostingController, animated: true)
+        
+        UIApplication.keyWin?.rootViewController?.present(hostingController, animated: true, completion: nil)
+
+    }
+    
 
     
     public func sendEvents(writeKey:String,eventName:String,user_id:String,eventProperties:[String:Any])
