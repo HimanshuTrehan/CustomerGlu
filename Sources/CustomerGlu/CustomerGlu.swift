@@ -136,7 +136,8 @@ public class CustomerGlu:ObservableObject {
         if Type as! String == "CustomerGlu"
         {
             print("CustomerGlu")
-            let swiftUIView = NotificationHandler(nudge_url: "https://google.com")
+            let nudge_url = myalert?["nudge_url"]
+            let swiftUIView = NotificationHandler(nudge_url: nudge_url as! String)
         //UIHostingController
     //        UINavigationController(rootViewController: UIViewController)
             let hostingController = UIHostingController(rootView: swiftUIView)
@@ -147,7 +148,10 @@ public class CustomerGlu:ObservableObject {
             UIApplication.keyWin?.rootViewController?.present(hostingController, animated: true, completion: nil)
         }
             
-     
+     else
+        {
+            return
+        }
 
     }
     
