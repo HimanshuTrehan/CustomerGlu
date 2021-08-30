@@ -14,15 +14,11 @@ struct RewardWeb: View {
     var body: some View {
         VStack
         {
-        if url == nil
-        {
-            EmptyView()
-        }
-        else{
+    
             
         CustomerWebView(my_url: url)
             
-        }
+        
         }.navigationViewStyle(StackNavigationViewStyle())
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)

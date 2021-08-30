@@ -137,7 +137,7 @@ public class CustomerGlu:ObservableObject {
         {
             print("CustomerGlu")
             let nudge_url = myalert?["nudge_url"]
-            let swiftUIView = NotificationHandler()
+            let swiftUIView = NotificationHandler(nudge_url: nudge_url as! String)
         //UIHostingController
     //        UINavigationController(rootViewController: UIViewController)
             let hostingController = UIHostingController(rootView: swiftUIView)

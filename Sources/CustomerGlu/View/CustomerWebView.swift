@@ -12,11 +12,10 @@ import UIKit
 @available(iOS 13.0, *)
 extension UIApplication{
 static var keyWin: UIWindow? {
-    if #available(iOS 13, *) {
-        return UIApplication.shared.windows.first { $0.isKeyWindow }
-    } else {
-        return UIApplication.shared.keyWindow
-    }
+    
+    return UIApplication.shared.windows.first { $0.isKeyWindow }
+    
+    
 }
 }
 @available(iOS 13.0, *)
