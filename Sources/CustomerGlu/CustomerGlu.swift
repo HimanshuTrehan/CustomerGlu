@@ -129,7 +129,7 @@ public class CustomerGlu:ObservableObject {
 
     }
     
-    public  func displayNotification(remoteMessage:[String:AnyHashable],withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+    public  func displayNotification(remoteMessage:[String:AnyHashable]) {
         
         let myalert = remoteMessage["alert"] as? [String:AnyHashable]
         let Type = myalert?["type"]
@@ -149,11 +149,9 @@ public class CustomerGlu:ObservableObject {
             }
             else
             {
-                if #available(iOS 14.0, *) {
-                    completionHandler([[.banner, .badge, .sound]])
-                } else {
+            
                     return
-                }
+                
 
             }
         
