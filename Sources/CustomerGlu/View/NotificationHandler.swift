@@ -23,24 +23,24 @@ import UIKit
 public struct NotificationHandler: View {
     
     @State var fromUikit = false
-    @State var my_url:String
+   // @State var my_url:String
 
-    public init(nudge_url:String,fromKit:Bool = false){
-        my_url = nudge_url
+    public init(fromKit:Bool = false){
+    //    my_url = nudge_url
         fromUikit = fromKit
     }
   
    public var body: some View {
         VStack
         {
-            if my_url==""
-            {
-                EmptyView()
-            }
-            else
-            {
-                CustomerWebView(my_url: my_url,fromWallet: true,fromUikit: true)
-            }
+//            if my_url==""
+//            {
+//                EmptyView()
+//            }
+//            else
+//            {
+                CustomerWebView(my_url: "https://google.com",fromWallet: true,fromUikit: true)
+           // }
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .navigationBarBackButtonHidden(true)
