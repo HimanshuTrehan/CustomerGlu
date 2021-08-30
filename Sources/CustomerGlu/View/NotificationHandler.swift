@@ -23,7 +23,7 @@ import UIKit
 public struct NotificationHandler: View {
     
     @State var fromUikit = false
-    @State var my_url:String
+    @State var my_url=""
 
     public init(nudge_url:String,fromKit:Bool = false){
         self.my_url = nudge_url

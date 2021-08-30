@@ -129,7 +129,7 @@ public class CustomerGlu:ObservableObject {
 
     }
     
-    public func displayNotification(remoteMessage:[String:AnyHashable]) {
+    public  func displayNotification(remoteMessage:[String:AnyHashable],withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         
         let myalert = remoteMessage["alert"] as? [String:AnyHashable]
         let Type = myalert?["type"]
@@ -137,15 +137,26 @@ public class CustomerGlu:ObservableObject {
         {
             print("CustomerGlu")
             let nudge_url = myalert?["nudge_url"]
-            let swiftUIView = NotificationHandler(nudge_url: nudge_url as! String)
-        //UIHostingController
-    //        UINavigationController(rootViewController: UIViewController)
-            let hostingController = UIHostingController(rootView: swiftUIView)
-            hostingController.modalPresentationStyle = .fullScreen
-        
-    //       self.navigationController?.pushViewController(hostingController, animated: true)
             
-            UIApplication.keyWin?.rootViewController?.present(hostingController, animated: true, completion: nil)
+            if ((myalert?["glu_message_type"]  as? String) == "in-app") {
+                let swiftUIView = NotificationHandler(nudge_url: nudge_url as! String)
+     
+                let hostingController = UIHostingController(rootView: swiftUIView)
+                hostingController.modalPresentationStyle = .fullScreen
+            
+                
+                UIApplication.keyWin?.rootViewController?.present(hostingController, animated: true, completion: nil)
+            }
+            else
+            {
+                if #available(iOS 14.0, *) {
+                    completionHandler([[.banner, .badge, .sound]])
+                } else {
+                    return
+                }
+
+            }
+        
         }
             
      else

@@ -12,7 +12,7 @@ import UIKit
 
 public struct OpenWallet: View {
     
-    @State var token:String
+    @State var token=""
     @State var fromUikit = false
     @State var my_url=""
 
