@@ -148,7 +148,7 @@ public class CustomerGlu:ObservableObject {
                     let swiftUIView = NotificationHandler(my_url: nudge_url as! String)
          
                     let hostingController = UIHostingController(rootView: swiftUIView)
-                    hostingController.modalPresentationStyle = .overFullScreen
+               //     hostingController.modalPresentationStyle = .overFullScreen
                     hostingController.isModalInPresentation = true
 
                     UIApplication.keyWin?.rootViewController?.present(hostingController, animated: true, completion: nil)
