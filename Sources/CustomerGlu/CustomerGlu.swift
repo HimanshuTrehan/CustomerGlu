@@ -39,6 +39,8 @@ public class CustomerGlu:ObservableObject {
                           print("data")
                           DispatchQueue.main.async{
                             self.apidata = mydata
+                            let token = self.apidata.data?.token
+                            UserDefaults.standard.set(token, forKey: "CustomerGlu_Token")
                               completion(self.apidata)
                           }
                           
