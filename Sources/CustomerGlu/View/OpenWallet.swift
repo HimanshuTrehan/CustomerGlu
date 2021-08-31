@@ -12,12 +12,12 @@ import UIKit
 
 public struct OpenWallet: View {
     
-    @State var token=""
+    @State var token:String
     @State var fromUikit = false
     @State var my_url=""
 
     public init(cus_token:String,fromKit:Bool = false){
-        self.token = cus_token
+        token = cus_token
         fromUikit = fromKit
     }
   
