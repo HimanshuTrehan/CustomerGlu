@@ -2,6 +2,24 @@ import Foundation
 import SwiftUI
 import UIKit
 @available(iOS 13.0, *)
+
+extension UIViewController{ static func topViewController() -> UIViewController? {
+
+      let keyWindow = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+
+      if var topController = keyWindow?.rootViewController {
+          while let presentedViewController = topController.presentedViewController {
+              topController = presentedViewController
+          }
+
+          return topController
+      }
+
+      return nil
+  }
+}
+@available(iOS 13.0, *)
+
 public class CustomerGlu:ObservableObject {
     
     @available(iOS 13.0, *)
@@ -126,8 +144,10 @@ public class CustomerGlu:ObservableObject {
         hostingController.modalPresentationStyle = .fullScreen
     
 //       self.navigationController?.pushViewController(hostingController, animated: true)
-        
-        UIApplication.keyWin?.rootViewController?.present(hostingController, animated: true, completion: nil)
+        guard let topController = UIViewController.topViewController() else {
+                   return
+               }
+        topController.present(hostingController, animated: true, completion: nil)
 
     }
     
