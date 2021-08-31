@@ -12,12 +12,10 @@ import UIKit
 
 public struct OpenWallet: View {
     
-    @State var token:String
     @State var fromUikit = false
     @State var my_url=""
 
-    public init(cus_token:String,fromKit:Bool = false){
-        token = cus_token
+    public init(fromKit:Bool = false){
         fromUikit = fromKit
     }
   
@@ -47,8 +45,8 @@ public struct OpenWallet: View {
    
     public func getCampaigns()
      {
-        
-        CustomerGlu().retrieveData(customer_token: token) { CampaignsModel in
+        let mytoken = UserDefaults.standard.string(forKey: "CustomerGlu_Token") as Any
+        CustomerGlu().retrieveData(customer_token: mytoken) { CampaignsModel in
              my_url = CampaignsModel.defaultUrl
             print(my_url)
         }
