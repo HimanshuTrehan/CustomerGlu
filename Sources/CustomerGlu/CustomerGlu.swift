@@ -149,6 +149,8 @@ public class CustomerGlu:ObservableObject {
          
                     let hostingController = UIHostingController(rootView: swiftUIView)
                     hostingController.modalPresentationStyle = .overFullScreen
+                    hostingController.isModalInPresentation = true
+
                     UIApplication.keyWin?.rootViewController?.present(hostingController, animated: true, completion: nil)
                 }
                 else  if notification_type as! String == "middle-default"{
