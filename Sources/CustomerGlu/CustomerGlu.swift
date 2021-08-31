@@ -149,8 +149,8 @@ public class CustomerGlu:ObservableObject {
          
                     let hostingController = UIHostingController(rootView: swiftUIView)
                     hostingController.modalPresentationStyle = .overCurrentContext
-//                    hostingController.view.backgroundColor = .clear
-                    hostingController.modalPresentationStyle = .fullScreen
+                   hostingController.view.backgroundColor = .clear
+                 //   hostingController.modalPresentationStyle = .fullScreen
                     UIApplication.keyWin?.rootViewController?.present(hostingController, animated: true, completion: nil)
                 }
                 else
