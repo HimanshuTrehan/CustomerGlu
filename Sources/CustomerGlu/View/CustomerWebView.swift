@@ -60,7 +60,11 @@ public struct CustomerWebView: UIViewRepresentable {
                 if(parent.fromWallet && parent.fromUikit)
                 {
                     print("UIKIT")
-                    UIApplication.keyWin?.rootViewController?.dismiss(animated: true, completion: nil)
+                    guard let topController = UIViewController.topViewController() else {
+                                                         return
+                                                     }
+                    topController.dismiss(animated: true, completion: nil)
+                 //   UIApplication.keyWin?.rootViewController?.dismiss(animated: true, completion: nil)
                 }
                 else{
                     print("SwiftUI")
