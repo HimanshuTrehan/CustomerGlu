@@ -182,7 +182,11 @@ public class CustomerGlu:ObservableObject {
                     hostingController.modalPresentationStyle = .overCurrentContext
                    hostingController.view.backgroundColor = .clear
                  //   hostingController.modalPresentationStyle = .fullScreen
-                    UIApplication.keyWin?.rootViewController?.present(hostingController, animated: true, completion: nil)
+                 //   UIApplication.keyWin?.rootViewController?.present(hostingController, animated: true, completion: nil)
+                    guard let topController = UIViewController.topViewController() else {
+                                      return
+                                  }
+                           topController.present(hostingController, animated: true, completion: nil)
                 }
                 else
                 {
