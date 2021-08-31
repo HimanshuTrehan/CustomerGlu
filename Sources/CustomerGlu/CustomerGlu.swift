@@ -149,10 +149,7 @@ public class CustomerGlu:ObservableObject {
             }
             else
             {
-            
                     return
-                
-
             }
         
         }
@@ -163,7 +160,25 @@ public class CustomerGlu:ObservableObject {
         }
 
     }
-    
+    public  func notificationFromCustomerGlu(remoteMessage:[String:AnyHashable])-> Bool {
+        let myalert = remoteMessage["alert"] as? [String:AnyHashable]
+        let Type = myalert?["type"]
+        if Type as! String == "CustomerGlu"
+        {
+            if ((myalert?["glu_message_type"]  as? String) == "in-app")  {
+                return true
+            }
+            else
+            {
+                return false
+            }
+        }
+        
+        else{
+            return false
+        }
+        
+    }
 
     
     public func sendEvents(writeKey:String,eventName:String,user_id:String,eventProperties:[String:Any])
