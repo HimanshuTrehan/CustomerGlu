@@ -148,6 +148,7 @@ public class CustomerGlu:ObservableObject {
                     let swiftUIView = NotificationHandler(my_url: nudge_url as! String, ismiddle:true)
          
                     let hostingController = UIHostingController(rootView: swiftUIView)
+                    hostingController.view.backgroundColor = .clear
                     hostingController.modalPresentationStyle = .fullScreen
                     UIApplication.keyWin?.rootViewController?.present(hostingController, animated: true, completion: nil)
                 }
