@@ -20,17 +20,13 @@ import SwiftUI
 import UIKit
 @available(iOS 13.0, *)
 
-public struct NotificationHandler: View {
+ struct NotificationHandler: View {
     
     @State var fromUikit = false
-    @State var my_url=""
+    @State var my_url:String
 
-    public init(nudge_url:String,fromKit:Bool = false){
-        self.my_url = nudge_url
-        fromUikit = fromKit
-    }
   
-   public var body: some View {
+    var body: some View {
         VStack
         {
             if my_url==""
