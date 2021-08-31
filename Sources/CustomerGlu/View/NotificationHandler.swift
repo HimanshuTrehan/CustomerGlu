@@ -29,14 +29,9 @@ import UIKit
     var body: some View {
         VStack
         {
-            if my_url==""
-            {
-                EmptyView()
-            }
-            else
-            {
+        
                 CustomerWebView(my_url: my_url,fromWallet: true,fromUikit: true)
-            }
+            
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .navigationBarBackButtonHidden(true)
