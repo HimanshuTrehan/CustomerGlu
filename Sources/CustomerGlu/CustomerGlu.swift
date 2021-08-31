@@ -117,7 +117,7 @@ public class CustomerGlu:ObservableObject {
 
     }
     
-    public func loadAllCampaignsUiKit(cus_token:String) {
+    public func loadAllCampaignsUiKit() {
 
         let swiftUIView = LoadCampaignsUiKit()
     //UIHostingController
