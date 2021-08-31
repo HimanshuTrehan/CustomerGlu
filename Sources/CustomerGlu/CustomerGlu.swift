@@ -103,9 +103,9 @@ public class CustomerGlu:ObservableObject {
         }.resume()
         
     }
-    public func openUiKitWallet(cus_token:String) {
+    public func openUiKitWallet() {
 
-        let swiftUIView = OpenUiKitWallet(token: cus_token)
+        let swiftUIView = OpenUiKitWallet()
     //UIHostingController
 //        UINavigationController(rootViewController: UIViewController)
         let hostingController = UIHostingController(rootView: swiftUIView)
@@ -119,7 +119,7 @@ public class CustomerGlu:ObservableObject {
     
     public func loadAllCampaignsUiKit(cus_token:String) {
 
-        let swiftUIView = LoadCampaignsUiKit(customer_token: cus_token)
+        let swiftUIView = LoadCampaignsUiKit()
     //UIHostingController
 //        UINavigationController(rootViewController: UIViewController)
         let hostingController = UIHostingController(rootView: swiftUIView)

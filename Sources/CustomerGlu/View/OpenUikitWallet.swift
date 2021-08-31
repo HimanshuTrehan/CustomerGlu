@@ -11,7 +11,6 @@ import SwiftUI
 @available(iOS 13.0, *)
 struct OpenUiKitWallet: View {
     
-    @State var token:String
     @State var my_url=""
 
 
@@ -41,7 +40,9 @@ struct OpenUiKitWallet: View {
    
     public func getCampaigns()
      {
-        CustomerGlu().retrieveData(customer_token: token) { CampaignsModel in
+        let mytoken = UserDefaults.standard.string(forKey: "CustomerGlu_Token")
+
+        CustomerGlu().retrieveData(customer_token: mytoken ?? "sadas") { CampaignsModel in
              my_url = CampaignsModel.defaultUrl
             print(my_url)
         }

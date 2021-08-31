@@ -16,13 +16,14 @@ import SwiftUI
     var height = UIScreen.main.bounds.height
     var width = UIScreen.main.bounds.width
     @Environment(\.presentationMode) var presentationMode
-    var customer_token:String
     
 
     @State var campaigns:[Campaigns]=[]
     
     public func getCampaign() {
-        CustomerGlu().retrieveData(customer_token: customer_token, completion: { CampaignsModel in
+        let mytoken = UserDefaults.standard.string(forKey: "CustomerGlu_Token")
+
+        CustomerGlu().retrieveData(customer_token: mytoken ?? "sdas", completion: { CampaignsModel in
             campaigns = CampaignsModel.campaigns!
        })
     }
