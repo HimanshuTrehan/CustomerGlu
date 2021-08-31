@@ -137,14 +137,13 @@ public class CustomerGlu:ObservableObject {
         {
             print("CustomerGlu")
             let nudge_url = myalert?["nudge_url"]
-            
+            print(nudge_url as Any)
             if ((myalert?["glu_message_type"]  as? String) == "in-app") {
+                print(nudge_url as Any)
                 let swiftUIView = NotificationHandler(nudge_url: nudge_url as! String)
      
                 let hostingController = UIHostingController(rootView: swiftUIView)
                 hostingController.modalPresentationStyle = .fullScreen
-            
-                
                 UIApplication.keyWin?.rootViewController?.present(hostingController, animated: true, completion: nil)
             }
             else
