@@ -38,21 +38,15 @@ import UIKit
             {
                 if ismiddle
                 {
-                    ZStack
-                    {
-                        // PopUp background color
-                                    //   Color.black.opacity(0.5).edgesIgnoringSafeArea(.all)
-//
-                                       // PopUp Window
+                 
                                        VStack(alignment: .center, spacing: 0) {
                                         CustomerWebView(my_url: my_url,fromWallet: true,fromUikit: true)
 
                                        }
                                        .frame(maxWidth: 300,maxHeight: 300)
-                                   //    .border(Color.white, width: 2)
-                                   //    .background(Color(#colorLiteral(red: 0.737254902, green: 0.1294117647, blue: 0.2941176471, alpha: 1)))
+                                   
                                    }
-                    }
+                    
                 
                 else
                 {
