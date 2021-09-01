@@ -39,8 +39,13 @@ import SwiftUI
                 Image(systemName: "chevron.left")
                     .frame(width: 30, height: 30, alignment: .center)
                     .onTapGesture {
-                     //   UIApplication.keyWin?.rootViewController?.dismiss(animated: true, completion: nil)
-                        
+                       // UIApplication.keyWin?.rootViewController?.dismiss(animated: true, completion: nil)
+                        guard let topController = UIViewController.topViewController() else {
+                                                             return
+                                                         }
+                        topController.dismiss(animated: true, completion: nil)
+
+
                     }
                 
                 Text("Campaigns")
