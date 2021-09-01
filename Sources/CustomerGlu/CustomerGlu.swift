@@ -32,6 +32,16 @@ public class CustomerGlu:ObservableObject {
     var load_campaigns_url = "https://api.customerglu.com/reward/v1.1/user"
    var send_events = "https://stream.customerglu.com/v3/server"
     
+    func machineName() -> String {
+      var systemInfo = utsname()
+      uname(&systemInfo)
+      let machineMirror = Mirror(reflecting: systemInfo.machine)
+      return machineMirror.children.reduce("") { identifier, element in
+        guard let value = element.value as? Int8, value != 0 else { return identifier }
+        return identifier + String(UnicodeScalar(UInt8(value)))
+      }
+    }
+    
     public func doRegister(body:[String:AnyHashable],completion:@escaping (RegistrationModel)->Void)
       {
         var userdata = body
@@ -39,6 +49,10 @@ public class CustomerGlu:ObservableObject {
             print(uuid)
             userdata["deviceId"] = uuid
         }
+        userdata["deviceType"] = "ios"
+        
+        print(machineName())
+        
           let jsonData = try! JSONSerialization.data(withJSONObject: userdata, options: .fragmentsAllowed)
 
            let myurl = URL(string: register_url)
