@@ -244,6 +244,20 @@ public class CustomerGlu:ObservableObject {
     
 
     }
+    public  func displayBackgroundNotification(remoteMessage:[String:AnyHashable]) {
+        
+        let myalert = remoteMessage["alert"] as? [String:AnyHashable]
+            let nudge_url = myalert?["nudge_url"]
+        let swiftUIView = NotificationHandler(my_url: nudge_url as! String)
+
+        let hostingController = UIHostingController(rootView: swiftUIView)
+        hostingController.modalPresentationStyle = .fullScreen
+            guard let topController = UIViewController.topViewController() else {
+                              return
+                          }
+                   topController.present(hostingController, animated: true, completion: nil)
+        
+    }
     public  func notificationFromCustomerGlu(remoteMessage:[String:AnyHashable])-> Bool {
         let myalert = remoteMessage["alert"] as? [String:AnyHashable]
         let Type = myalert?["type"]
