@@ -246,8 +246,7 @@ public class CustomerGlu:ObservableObject {
     }
     public  func displayBackgroundNotification(remoteMessage:[String:AnyHashable]) {
         
-        let myalert = remoteMessage["alert"] as? [String:AnyHashable]
-            let nudge_url = myalert?["nudge_url"]
+            let nudge_url = remoteMessage["nudge_url"]
         let swiftUIView = NotificationHandler(my_url: nudge_url as! String)
 
         let hostingController = UIHostingController(rootView: swiftUIView)
