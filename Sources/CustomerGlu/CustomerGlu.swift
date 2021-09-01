@@ -131,8 +131,10 @@ public class CustomerGlu:ObservableObject {
     
 //       self.navigationController?.pushViewController(hostingController, animated: true)
         
-        UIApplication.keyWin?.rootViewController?.present(hostingController, animated: true, completion: nil)
-
+        guard let topController = UIViewController.topViewController() else {
+                          return
+                      }
+               topController.present(hostingController, animated: true, completion: nil)
     }
     
     public func loadAllCampaignsUiKit() {
@@ -164,8 +166,10 @@ public class CustomerGlu:ObservableObject {
          
                     let hostingController = UIHostingController(rootView: swiftUIView)
               //      hostingController.modalPresentationStyle = .fullScreen
-                    UIApplication.keyWin?.rootViewController?.present(hostingController, animated: true, completion: nil)
-                }
+                    guard let topController = UIViewController.topViewController() else {
+                                      return
+                                  }
+                           topController.present(hostingController, animated: true, completion: nil)                }
                 else   if notification_type as! String == "bottom-default"{
                     let swiftUIView = NotificationHandler(my_url: nudge_url as! String)
          
@@ -173,8 +177,10 @@ public class CustomerGlu:ObservableObject {
                //     hostingController.modalPresentationStyle = .overFullScreen
                     hostingController.isModalInPresentation = true
 
-                    UIApplication.keyWin?.rootViewController?.present(hostingController, animated: true, completion: nil)
-                }
+                    guard let topController = UIViewController.topViewController() else {
+                                      return
+                                  }
+                           topController.present(hostingController, animated: true, completion: nil)                }
                 else  if notification_type as! String == "middle-default"{
                     let swiftUIView = NotificationHandler(my_url: nudge_url as! String, ismiddle:true)
          
@@ -194,8 +200,10 @@ public class CustomerGlu:ObservableObject {
      
                 let hostingController = UIHostingController(rootView: swiftUIView)
                 hostingController.modalPresentationStyle = .fullScreen
-                UIApplication.keyWin?.rootViewController?.present(hostingController, animated: true, completion: nil)
-            }
+                    guard let topController = UIViewController.topViewController() else {
+                                      return
+                                  }
+                           topController.present(hostingController, animated: true, completion: nil)            }
             }
             else
             {
