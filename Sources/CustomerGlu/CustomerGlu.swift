@@ -32,10 +32,14 @@ public class CustomerGlu:ObservableObject {
     var load_campaigns_url = "https://api.customerglu.com/reward/v1.1/user"
    var send_events = "https://stream.customerglu.com/v3/server"
     
-    public func doRegister(body:Any,completion:@escaping (RegistrationModel)->Void)
+    public func doRegister(body:[String:AnyHashable],completion:@escaping (RegistrationModel)->Void)
       {
-
-          let jsonData = try! JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
+        var userdata = body
+        if let uuid = UIDevice.current.identifierForVendor?.uuidString {
+            print(uuid)
+            userdata["deviceId"] = uuid
+        }
+          let jsonData = try! JSONSerialization.data(withJSONObject: userdata, options: .fragmentsAllowed)
 
            let myurl = URL(string: register_url)
           var request = URLRequest(url: myurl!)
@@ -151,6 +155,14 @@ public class CustomerGlu:ObservableObject {
                }
         topController.present(hostingController, animated: true, completion: nil)
 
+    }
+    
+    public func getReferralId(deepLink:URL) -> String
+    {
+        let queryItems = URLComponents(url: deepLink, resolvingAgainstBaseURL: true)?.queryItems
+        let referrerUserId = queryItems?.filter({(item) in item.name == "userId"}).first?.value
+        
+        return referrerUserId ?? ""
     }
     
     public  func displayNotification(remoteMessage:[String:AnyHashable]) {
