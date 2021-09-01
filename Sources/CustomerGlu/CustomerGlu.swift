@@ -49,8 +49,13 @@ public class CustomerGlu:ObservableObject {
             print(uuid)
             userdata["deviceId"] = uuid
         }
-        userdata["deviceType"] = "ios"
+        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
         
+        userdata["deviceType"] = "ios"
+        let modelname = machineName()
+        userdata["deviceName"] = modelname
+        userdata["appVersion"] = appVersion
+
         print(machineName())
         
           let jsonData = try! JSONSerialization.data(withJSONObject: userdata, options: .fragmentsAllowed)
