@@ -186,11 +186,11 @@ public class CustomerGlu:ObservableObject {
     
     public  func displayNotification(remoteMessage:[String:AnyHashable]) {
         
-        let myalert = remoteMessage["alert"] as? [String:AnyHashable]
-            let nudge_url = myalert?["nudge_url"]
+     //   let myalert = remoteMessage["alert"] as? [String:AnyHashable]
+            let nudge_url = remoteMessage["nudge_url"]
             print(nudge_url as Any)
-            if ((myalert?["glu_message_type"]  as? String) == "in-app") {
-                let inapp_type = myalert?["inapp"] as! [String : AnyHashable]
+            if ((remoteMessage["glu_message_type"]  as? String) == "in-app") {
+                let inapp_type = remoteMessage["inapp"] as! [String : AnyHashable]
                 let notification_type = inapp_type["type"]
                 if notification_type as! String == "bottom-slider"{
                     let swiftUIView = NotificationHandler(my_url: nudge_url as! String)
@@ -259,11 +259,11 @@ public class CustomerGlu:ObservableObject {
         
     }
     public  func notificationFromCustomerGlu(remoteMessage:[String:AnyHashable])-> Bool {
-        let myalert = remoteMessage["alert"] as? [String:AnyHashable]
-        let Type = myalert?["type"]
+       
+        let Type = remoteMessage["type"]
         if Type as! String == "CustomerGlu"
         {
-            if ((myalert?["glu_message_type"]  as? String) == "in-app")  {
+            if ((remoteMessage["glu_message_type"]  as? String) == "in-app")  {
                 return true
             }
             else
