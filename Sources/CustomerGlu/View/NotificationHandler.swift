@@ -14,7 +14,6 @@ import Foundation
 //
 //  Created by Himanshu Trehan on 24/07/21.
 //
-#if canImport(SwiftUI)
 
 import SwiftUI
 import UIKit
@@ -62,4 +61,3 @@ import UIKit
     
 
 }
-#endif

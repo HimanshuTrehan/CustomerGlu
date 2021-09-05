@@ -4,7 +4,6 @@
 //
 //  Created by Himanshu Trehan on 23/07/21.
 //
-#if canImport(SwiftUI)
 
 import SwiftUI
 import WebKit
@@ -28,6 +27,7 @@ public struct CustomerWebView: UIViewRepresentable {
     @Environment(\.presentationMode) var presentation
     
    public class Coordinator: NSObject, WKNavigationDelegate, WKScriptMessageHandler {
+    
         var webView: WKWebView?
     var parent:CustomerWebView
   //  public override init(){}
@@ -150,4 +150,3 @@ public struct CustomerWebView: UIViewRepresentable {
     
     }
 }
-#endif
