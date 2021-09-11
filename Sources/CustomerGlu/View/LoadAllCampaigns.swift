@@ -25,6 +25,8 @@ public struct LoadAllCampaigns: View {
             campaigns = CampaignsModel.campaigns!
        })
     }
+    @State private var selectedItem: String?
+       @State private var listViewId = UUID()
     
     public var body: some View
     {
@@ -51,7 +53,8 @@ public struct LoadAllCampaigns: View {
             List(campaigns,id:\.campaignId)
                   {
                       element in
-                      
+                NavigationLink(destination: RewardWeb(url: element.url)) {
+
                 ZStack(alignment:.leading)
                 {
                     if element.banner != nil
@@ -87,6 +90,7 @@ public struct LoadAllCampaigns: View {
 
             }.background(Color.white)
             .listStyle(PlainListStyle())
+            
 
             
             
@@ -102,6 +106,7 @@ public struct LoadAllCampaigns: View {
         .background(Color.white)
       
        
+    }
     }
     }
 

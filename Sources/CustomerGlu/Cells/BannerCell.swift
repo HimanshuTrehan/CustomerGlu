@@ -77,7 +77,6 @@ struct BannerCell:View
     {
         VStack(alignment: .center) {
                 
-            NavigationLink(destination: RewardWeb(url: url)) {
                 Image(uiImage: image)
                                .resizable()
                                .aspectRatio(contentMode: .fit)
@@ -87,7 +86,7 @@ struct BannerCell:View
                        }
                // Image(uiImage: url.load())
 
-            }
+            
             Text(title).font(.system(size: 25)).padding(.bottom,10)
         }
         .frame(maxWidth: (.infinity-40), alignment: .center)
