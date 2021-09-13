@@ -190,8 +190,8 @@ public class CustomerGlu:ObservableObject {
             let nudge_url = remoteMessage["nudge_url"]
             print(nudge_url as Any)
             if ((remoteMessage["glu_message_type"]  as? String) == "in-app") {
-                let inapp_type = remoteMessage["inapp"] as! [String : AnyHashable]
-                let notification_type = inapp_type["type"]
+                let notification_type = remoteMessage["notification_type"]
+                
                 if notification_type as! String == "bottom-slider"{
                     let swiftUIView = NotificationHandler(my_url: nudge_url as! String)
          
@@ -218,8 +218,7 @@ public class CustomerGlu:ObservableObject {
                     let hostingController = UIHostingController(rootView: swiftUIView)
                     hostingController.modalPresentationStyle = .overCurrentContext
                    hostingController.view.backgroundColor = .clear
-                 //   hostingController.modalPresentationStyle = .fullScreen
-                 //   UIApplication.keyWin?.rootViewController?.present(hostingController, animated: true, completion: nil)
+                 
                     guard let topController = UIViewController.topViewController() else {
                                       return
                                   }
