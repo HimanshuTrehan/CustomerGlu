@@ -44,6 +44,8 @@ public struct CustomerWebView: UIViewRepresentable {
             _ userContentController: WKUserContentController,
             didReceive message: WKScriptMessage
         ) {
+        print(message.name)
+        print(message)
         print("Body message",message.body)
                     
         
