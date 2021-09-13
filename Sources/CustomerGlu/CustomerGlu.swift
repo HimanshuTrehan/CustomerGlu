@@ -188,8 +188,9 @@ public class CustomerGlu:ObservableObject {
         
             let nudge_url = remoteMessage["nudge_url"]
             print(nudge_url as Any)
+        let notification_type = remoteMessage["notification_type"]
+
             if ((remoteMessage["glu_message_type"]  as? String) == "in-app") {
-                let notification_type = remoteMessage["notification_type"] as! String
                 print(notification_type as Any)
                 if notification_type as! String == "bottom-slider"
                 {
