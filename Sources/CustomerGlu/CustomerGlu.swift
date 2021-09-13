@@ -190,7 +190,7 @@ public class CustomerGlu:ObservableObject {
             print(nudge_url as Any)
             if ((remoteMessage["glu_message_type"]  as? String) == "in-app") {
                 let notification_type = remoteMessage["notification_type"]
-                
+                print(notification_type as Any)
                 if notification_type as! String == "bottom-slider"
                 {
                     let swiftUIView = NotificationHandler(my_url: nudge_url as! String)
