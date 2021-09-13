@@ -140,7 +140,7 @@ public struct CustomerWebView: UIViewRepresentable {
     return _wkwebview
    }
   public  func updateUIView(_ uiView: WKWebView, context: Context) {
-    let test_url = URL(string: my_url)
+    let test_url = URL(string: "https://7oy1x.csb.app/")
    
     if(test_url != nil)
     {
