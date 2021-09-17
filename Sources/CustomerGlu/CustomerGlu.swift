@@ -86,6 +86,8 @@ public class CustomerGlu:ObservableObject {
                             self.apidata = mydata
                             let token = self.apidata.data?.token
                             UserDefaults.standard.set(token, forKey: "CustomerGlu_Token")
+                            let user_id = self.apidata.data?.token
+                            UserDefaults.standard.set(user_id, forKey: "CustomerGlu_user_id")
                               completion(self.apidata)
                           }
                           
@@ -284,7 +286,7 @@ public class CustomerGlu:ObservableObject {
     }
 
     
-    public func sendEvents(writeKey:String,eventName:String,user_id:String,eventProperties:[String:Any])
+    public func sendEvents(eventName:String,eventProperties:[String:Any])
       {
         let date = Date()
         let event_id = UUID().uuidString
@@ -292,6 +294,7 @@ public class CustomerGlu:ObservableObject {
         dateformatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         let timestamp = dateformatter.string(from: date)
         let evp = String(describing: eventProperties)
+        let user_id = UserDefaults.standard.string(forKey: "CustomerGlu_user_id")
         print(evp)
         let eventData = [
             "event_id": event_id,
@@ -300,13 +303,16 @@ public class CustomerGlu:ObservableObject {
             "timestamp": timestamp,
             "event_properties":evp
         ]
+        
+
+        let writekey = Bundle.main.object(forInfoDictionaryKey: "CUSTOMERGLU_WRITE_KEY") as? String
           let jsonData = try! JSONSerialization.data(withJSONObject: eventData, options: .fragmentsAllowed)
             print(jsonData)
            let myurl = URL(string: send_events)
           var request = URLRequest(url: myurl!)
           request.httpMethod="POST"
           request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue(writeKey, forHTTPHeaderField: "x-api-key")
+        request.setValue(writekey, forHTTPHeaderField: "x-api-key")
 
         //  request.httpBody = eventData
 
