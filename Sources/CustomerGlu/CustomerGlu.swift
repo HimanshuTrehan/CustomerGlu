@@ -50,7 +50,7 @@ public class CustomerGlu:ObservableObject {
             userdata["deviceId"] = uuid
         }
         let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
-        let writekey = Bundle.main.object(forInfoDictionaryKey: "CUSTOMER_WRITE_KEY") as? String
+        let writekey = Bundle.main.object(forInfoDictionaryKey: "CUSTOMERGLU_WRITE_KEY") as? String
 
         
         userdata["deviceType"] = "ios"
