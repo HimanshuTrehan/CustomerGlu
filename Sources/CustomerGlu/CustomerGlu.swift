@@ -124,10 +124,10 @@ public class CustomerGlu:ObservableObject {
             
             if error == nil && data != nil
             {
-           //     do {
-//                    let dictonary = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
-//                    as?[String:Any]
-//                    print(dictonary as Any)
+                do {
+                    let dictonary = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
+                    as?[String:Any]
+                    print(dictonary as Any)
                     do{
                         let mydata = try JSONDecoder().decode(CampaignsModel.self, from: data!)
                         print("data")
@@ -143,9 +143,9 @@ public class CustomerGlu:ObservableObject {
                         print("json parsing error:\(error)")
                     }
 
-             //   } catch  {
-                 //   print("error: \(error)")
-             //   }
+                } catch  {
+                    print("error: \(error)")
+                }
             }
          
             
