@@ -3,7 +3,8 @@ import SwiftUI
 import UIKit
 @available(iOS 13.0, *)
 
-extension UIViewController{ static func topViewController() -> UIViewController? {
+extension UIViewController{
+    static func topViewController() -> UIViewController? {
 
       let keyWindow = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
 
@@ -21,7 +22,7 @@ extension UIViewController{ static func topViewController() -> UIViewController?
 @available(iOS 13.0, *)
 
 public class CustomerGlu:ObservableObject {
-    
+    var constant = Constants()
     @available(iOS 13.0, *)
     public init(){
     }
@@ -81,7 +82,8 @@ public class CustomerGlu:ObservableObject {
                       print(dictonary as Any)
                       do{
                           let mydata = try JSONDecoder().decode(RegistrationModel.self, from: data!)
-                          print("data")
+                          print("---------")
+                        print(self.constant.error)
                           DispatchQueue.main.async{
                             self.apidata = mydata
                             let token = self.apidata.data?.token
